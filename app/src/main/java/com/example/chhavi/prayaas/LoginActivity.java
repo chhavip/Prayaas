@@ -50,6 +50,7 @@ public class LoginActivity extends ActionBarActivity implements View.OnClickList
         cv.put(PrayaasContract.USER_TABLE_PHONE_COL, "9818115541");
         cv.put(PrayaasContract.USER_TABLE_AGE_COL, 20);
         cv.put(PrayaasContract.USER_TABLE_GENDER_COL, "Male");
+        cv.put(PrayaasContract.USER_TABLE_REFERRAL_COL, "SH981");
 
         db.insert(PrayaasContract.USER_TABLE, null, cv);
 
@@ -99,7 +100,8 @@ public class LoginActivity extends ActionBarActivity implements View.OnClickList
                             PrayaasContract.USER_TABLE_PASSWORD_COL,
                             PrayaasContract.USER_TABLE_PHONE_COL,
                             PrayaasContract.USER_TABLE_AGE_COL,
-                            PrayaasContract.USER_TABLE_GENDER_COL},
+                            PrayaasContract.USER_TABLE_GENDER_COL,
+                            PrayaasContract.USER_TABLE_REFERRAL_COL},
 
                     PrayaasContract.USER_TABLE_USERNAME_COL + " = " + "'" + userName + "'"
                             + " and " + PrayaasContract.USER_TABLE_PASSWORD_COL + " = "
@@ -114,6 +116,7 @@ public class LoginActivity extends ActionBarActivity implements View.OnClickList
                 editor.putString("phone", c.getString(c.getColumnIndex(PrayaasContract.USER_TABLE_PHONE_COL)));
                 editor.putString("password", c.getString(c.getColumnIndex(PrayaasContract.USER_TABLE_PASSWORD_COL)));
                 editor.putString("gender", c.getString(c.getColumnIndex(PrayaasContract.USER_TABLE_GENDER_COL)));
+                editor.putString("referral", c.getString(c.getColumnIndex(PrayaasContract.USER_TABLE_REFERRAL_COL)));
                 editor.putInt("age", c.getInt(c.getColumnIndex(PrayaasContract.USER_TABLE_AGE_COL)));
                 editor.commit();
                 Intent i = new Intent();

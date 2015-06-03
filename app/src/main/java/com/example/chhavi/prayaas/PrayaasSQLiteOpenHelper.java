@@ -20,7 +20,8 @@ public class PrayaasSQLiteOpenHelper extends SQLiteOpenHelper {
                 PrayaasContract.USER_TABLE_USERNAME_COL+" TEXT,"+
                 PrayaasContract.USER_TABLE_GENDER_COL+" TEXT,"+
                 PrayaasContract.USER_TABLE_PHONE_COL+" TEXT,"+
-                PrayaasContract.USER_TABLE_PASSWORD_COL+" TEXT"+
+                PrayaasContract.USER_TABLE_PASSWORD_COL+" TEXT,"+
+                PrayaasContract.USER_TABLE_REFERRAL_COL+" TEXT"+
 
                 ")");
     }
