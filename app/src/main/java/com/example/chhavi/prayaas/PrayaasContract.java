@@ -17,6 +17,7 @@ public class PrayaasContract implements BaseColumns {
     public static final String USER_TABLE_AGE_COL="Age";
     public static final String USER_TABLE_PHONE_COL="Phone";
     public static final String USER_TABLE_GENDER_COL="Gender";
+    public static final String USER_TABLE_REFERRAL_COL="Referral";
 
 
 
