@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/linear_layout"
+    >
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Share with your friends"
+        android:id="@+id/textView"
+        android:layout_marginTop="15dp"
+        android:layout_gravity="center_horizontal" />
+
+    <com.gc.materialdesign.views.ButtonRectangle
+        android:id="@+id/whatsapp_button"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:layout_gravity="center"
+        android:background="#03A9F4"
+
+        android:text="Via Whatsapp" />
+
+  <com.gc.materialdesign.views.ButtonRectangle
+        android:id="@+id/facebook_button"
+      android:layout_width="200dp"
+        android:layout_height="wrap_content"
+      android:layout_marginTop="30dp"
+      android:layout_gravity="center"
+      android:background="#03A9F4"
+
+        android:text="Via Facebook" />
+
+    <com.gc.materialdesign.views.ButtonRectangle
+        android:id="@+id/gmail_button"
+        android:layout_marginTop="30dp"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:background="#03A9F4"
+
+        android:text="Via Gmail" />
+
+    <com.gc.materialdesign.views.ButtonRectangle
+        android:id="@+id/more_options_button"
+        android:layout_width="200dp"
+        android:layout_gravity="center"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:background="#03A9F4"
+
+        android:text="More Options" />
+</LinearLayout>
