@@ -110,15 +110,8 @@ public class LoginActivity extends ActionBarActivity implements View.OnClickList
             Boolean right = c.moveToFirst();
             if (right) {
                 Toast.makeText(this, "login successful", Toast.LENGTH_SHORT).show();
-                SharedPreferences.Editor editor = sp.edit();
-                editor.putString("name", c.getString(c.getColumnIndex(PrayaasContract.USER_TABLE_NAME_COL)));
-                editor.putString("username", c.getString(c.getColumnIndex(PrayaasContract.USER_TABLE_USERNAME_COL)));
-                editor.putString("phone", c.getString(c.getColumnIndex(PrayaasContract.USER_TABLE_PHONE_COL)));
-                editor.putString("password", c.getString(c.getColumnIndex(PrayaasContract.USER_TABLE_PASSWORD_COL)));
-                editor.putString("gender", c.getString(c.getColumnIndex(PrayaasContract.USER_TABLE_GENDER_COL)));
-                editor.putString("referral", c.getString(c.getColumnIndex(PrayaasContract.USER_TABLE_REFERRAL_COL)));
-                editor.putInt("age", c.getInt(c.getColumnIndex(PrayaasContract.USER_TABLE_AGE_COL)));
-                editor.commit();
+                savePreferences(c);
+
                 Intent i = new Intent();
                 i.setClass(this, NavigationDrawer.class);
                 startActivity(i);
@@ -134,4 +127,19 @@ public class LoginActivity extends ActionBarActivity implements View.OnClickList
             startActivityForResult(i, 1);
         }
     }
+
+    public void savePreferences(Cursor c)   {
+
+        SharedPreferences.Editor editor = sp.edit();
+        editor.putString(PrayaasContract.USER_TABLE_NAME_COL, c.getString(c.getColumnIndex(PrayaasContract.USER_TABLE_NAME_COL)));
+        editor.putString(PrayaasContract.USER_TABLE_USERNAME_COL, c.getString(c.getColumnIndex(PrayaasContract.USER_TABLE_USERNAME_COL)));
+        editor.putString(PrayaasContract.USER_TABLE_PHONE_COL, c.getString(c.getColumnIndex(PrayaasContract.USER_TABLE_PHONE_COL)));
+        editor.putString(PrayaasContract.USER_TABLE_PASSWORD_COL, c.getString(c.getColumnIndex(PrayaasContract.USER_TABLE_PASSWORD_COL)));
+        editor.putString(PrayaasContract.USER_TABLE_GENDER_COL, c.getString(c.getColumnIndex(PrayaasContract.USER_TABLE_GENDER_COL)));
+        editor.putString(PrayaasContract.USER_TABLE_REFERRAL_COL, c.getString(c.getColumnIndex(PrayaasContract.USER_TABLE_REFERRAL_COL)));
+        editor.putInt(PrayaasContract.USER_TABLE_AGE_COL, c.getInt(c.getColumnIndex(PrayaasContract.USER_TABLE_AGE_COL)));
+        editor.commit();
+    }
+
+
 }
