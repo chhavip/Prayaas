@@ -28,6 +28,10 @@ dependencies {
     compile 'com.android.support:appcompat-v7:21.0.3'
     compile 'it.neokree:MaterialNavigationDrawer:1.3.3'
     compile 'com.github.navasmdc:MaterialDesign:1.5@aar'
+    compile 'com.mcxiaoke.volley:library-aar:1.0.0'
+    compile 'com.android.support:cardview-v7:21.0.+'
+    compile 'com.android.support:recyclerview-v7:21.0.3'
+    compile 'com.google.code.gson:gson:2.3'
 
 }
 

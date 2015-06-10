@@ -11,6 +11,7 @@
         <item name="colorAccent">#448AFF</item>
         <item name="drawerColor">#e85d3880</item>
         <item name="singleAccount">true</item>
+        <item name="android:windowBackground">@color/white</item>
     </style>
 
 </resources>

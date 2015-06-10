@@ -19,7 +19,7 @@
             android:textStyle="bold"
             android:textColor="#000000"
             android:textSize="25dp"
-            android:text="UserName"
+            android:text="Email Id"
             android:gravity="center"
             />
         <EditText
@@ -28,7 +28,7 @@
             android:layout_weight="6"
             android:id="@+id/newusername"
             android:layout_gravity="center"
-            android:hint="UserName"
+            android:hint="Email Id"
             android:gravity="center"/>
     </LinearLayout>
     <LinearLayout

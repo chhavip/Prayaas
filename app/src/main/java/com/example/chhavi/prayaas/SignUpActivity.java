@@ -80,6 +80,7 @@ public class SignUpActivity extends ActionBarActivity implements View.OnClickLis
         cv.put(PrayaasContract.USER_TABLE_PHONE_COL, phone.getText().toString());
         cv.put(PrayaasContract.USER_TABLE_AGE_COL, Integer.valueOf(age.getText().toString()));
         cv.put(PrayaasContract.USER_TABLE_GENDER_COL, gender);
+        if(referral.getText().toString()!=null)
         cv.put(PrayaasContract.USER_TABLE_REFERRAL_COL, referral.getText().toString());
         Intent i = new Intent();
         i.setClass(this, OtpActivity.class);

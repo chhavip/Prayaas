@@ -20,7 +20,7 @@ public class NavigationDrawer extends MaterialNavigationDrawer {
         String username = sp.getString(PrayaasContract.USER_TABLE_USERNAME_COL, null);
         this.addSection(newSection("HOME", new HomeFragment()));
         this.addSection(newSection("PROFILE", new FragmentOne()));
-        this.addSection(newSection("REWARDS", new FragmentOne()));
+        this.addSection(newSection("REWARDS", new Rewards()));
         this.addSection(newSection("INVITE FRIENDS", new InviteFriends()));
         this.addSection(newSection("ABOUT US", new FragmentOne()));
        this.addAccount(new MaterialAccount(this.getResources(), name, username,null,R.drawable.nepalim));
