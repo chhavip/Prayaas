@@ -27,7 +27,8 @@
             <!-- </intent-filter> -->
         </activity>
         <activity
-            android:name=".LoginActivityNet">
+            android:name=".LoginActivityNet"
+            android:theme="@style/login">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
                 <category android:name="android.intent.category.LAUNCHER" />
@@ -49,7 +50,7 @@
         </activity>
         <activity
             android:name=".EventDetail"
-            android:label="Event Details" >
+            android:label="Event Description" >
         </activity>
     </application>
 

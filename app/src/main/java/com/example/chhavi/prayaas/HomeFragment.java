@@ -22,6 +22,7 @@ import com.android.volley.VolleyError;
 import com.android.volley.VolleyLog;
 import com.android.volley.toolbox.Volley;
 
+import java.io.Serializable;
 import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.List;
@@ -117,7 +118,10 @@ ListView eventsList;
             @Override
             public void onItemClick(View v, int position) {
                 // do something with position
+
                 Intent i = new Intent(getActivity(),EventDetail.class);
+                Events selectedEvent = events.get(position);
+                i.putExtra("selectedEvent", (Serializable) selectedEvent);
                 startActivity(i);
             }
         });

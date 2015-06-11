@@ -1,9 +1,11 @@
 package models;
 
+import java.io.Serializable;
+
 /**
  * Created by chhavi on 8/6/15.
  */
-public class Events {
+public class Events implements Serializable {
 
     public String name;
    public   String date;

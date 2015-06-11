@@ -19,7 +19,7 @@ public class NavigationDrawer extends MaterialNavigationDrawer {
         String name = sp.getString(PrayaasContract.USER_TABLE_NAME_COL, null);
         String username = sp.getString(PrayaasContract.USER_TABLE_USERNAME_COL, null);
         this.addSection(newSection("HOME", new HomeFragment()));
-        this.addSection(newSection("PROFILE", new FragmentOne()));
+        this.addSection(newSection("PROFILE", new ProfileFragment()));
         this.addSection(newSection("REWARDS", new Rewards()));
         this.addSection(newSection("INVITE FRIENDS", new InviteFriends()));
         this.addSection(newSection("ABOUT US", new FragmentOne()));
