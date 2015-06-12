@@ -1,6 +1,8 @@
 package com.example.chhavi.prayaas;
 
 import android.app.Fragment;
+import android.app.FragmentManager;
+import android.app.FragmentTransaction;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -14,6 +16,8 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.LinearLayout;
 import android.widget.ListView;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -42,7 +46,7 @@ import static com.example.chhavi.prayaas.R.drawable.nepalim;
  */
 public class HomeFragment extends Fragment {
 ListView eventsList;
-    LinearLayout back;
+    RelativeLayout back;
     private List<Events> events;
     private RecyclerView rv;
     String url;
@@ -50,8 +54,11 @@ ListView eventsList;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         //return super.onCreateView(inflater, container, savedInstanceState);
-        View v = inflater.inflate(R.layout.activity_main,null);
 
+        View v = inflater.inflate(R.layout.activity_main, null);
+        FragmentTransaction transaction = getChildFragmentManager().beginTransaction();
+        GoingEventFragment fragment = new GoingEventFragment();
+        transaction.add(R.id.goingFragment, fragment).commit();
      //   eventsList = (ListView)v.findViewById(R.id.eventsList);
         url = "http://192.168.0.102/android_login_api/fetch_events.php";
         RequestQueue queue = AppController.getInstance().getRequestQueue();
@@ -62,7 +69,7 @@ ListView eventsList;
         queue.add(myreq);
 
         rv=(RecyclerView)v.findViewById(R.id.rv);
-        back = (LinearLayout)v.findViewById(R.id.home_background);
+        back = (RelativeLayout)v.findViewById(R.id.home_background);
       //  back.setBackgroundColor(white);
         LinearLayoutManager llm = new LinearLayoutManager(getActivity());
         rv.setLayoutManager(llm);
@@ -70,13 +77,29 @@ ListView eventsList;
         rv.setItemAnimator(new DefaultItemAnimator());
         initializeData();
         initializeAdapter();
+        //Read database and check if user event database has any pending events. If yes, display using the following code
+        //if cursor.moveToFirst!=null we can make pendingEvents true
+        //The fragment has to be hidden when there is no pending event.
+        boolean pendingEvents = true;
+        if(pendingEvents)   {
+            //this shifts the layout by exactly the size of our fragment
+            RelativeLayout rl = (RelativeLayout) v.findViewById(R.id.rl);
+            rl.setY(400);
+        }
+
 
       //  ArrayAdapter<String> adapter = new ArrayAdapter<String>(getActivity(),android.R.layout.simple_list_item_1, android.R.id.text1, values);
    //     eventsList.setAdapter(adapter);
         return v;
     }
 
-
+//    public void onDestroyView() {
+//        super.onDestroyView();
+//        Fragment f = (Fragment) getFragmentManager()
+//                .findFragmentById(R.id.goingFragment);
+//        if (f != null)
+//            getFragmentManager().beginTransaction().remove(f).commit();
+//    }
 
     private Response.Listener<EventResponse> createMyReqSuccessListener() {
         return new Response.Listener<EventResponse>() {
@@ -110,7 +133,7 @@ ListView eventsList;
 
     private void initializeAdapter(){
         EventCardAdapter adapter;
-        adapter = new EventCardAdapter(events);
+        adapter = new EventCardAdapter(events, R.layout.event_card_item);
 
 
         adapter.SetOnItemClickListener(new EventCardAdapter.OnItemClickListener() {

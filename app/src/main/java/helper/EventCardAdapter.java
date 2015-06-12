@@ -21,7 +21,7 @@ import models.Events;
  * Created by chhavi on 8/6/15.
  */
 public class EventCardAdapter extends RecyclerView.Adapter<EventCardAdapter.EventHolder> {
-
+    int resId;
      OnItemClickListener mItemClickListener;
     public class EventHolder extends RecyclerView.ViewHolder implements  View.OnClickListener{
 
@@ -61,8 +61,8 @@ public class EventCardAdapter extends RecyclerView.Adapter<EventCardAdapter.Even
 
     List<Events> events;
 
-    public EventCardAdapter(List<Events> events){
-
+    public EventCardAdapter(List<Events> events, int resId){
+        this.resId = resId;
         this.events = events;
     }
     @Override
@@ -72,7 +72,7 @@ public class EventCardAdapter extends RecyclerView.Adapter<EventCardAdapter.Even
 
     @Override
     public EventCardAdapter.EventHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.event_card_item, parent, false);
+        View v = LayoutInflater.from(parent.getContext()).inflate(resId, parent, false);
         EventHolder pvh = new EventHolder(v);
         return pvh;
     }

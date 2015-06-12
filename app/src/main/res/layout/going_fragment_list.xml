@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Upcoming Events"
+        android:gravity="center"
+        android:textSize="20sp"
+        android:textColor="@color/black"
+        android:id="@+id/titleSelectedEvents"
+        android:background="@color/amber_A100"
+        />
+    <android.support.v7.widget.RecyclerView
+        android:layout_height="match_parent"
+        android:layout_width="match_parent"
+        android:id="@+id/rv"
+        android:layout_below="@+id/titleSelectedEvents"
+        android:padding="10dp"
+        >
+
+    </android.support.v7.widget.RecyclerView>
+</RelativeLayout>

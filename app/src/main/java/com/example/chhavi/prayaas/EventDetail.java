@@ -19,6 +19,7 @@ import com.nineoldandroids.view.ViewHelper;
 
 import java.util.ArrayList;
 
+import models.EventResponse;
 import models.Events;
 
 
@@ -92,10 +93,10 @@ public class EventDetail extends AppCompatActivity implements ObservableScrollVi
     @Override
     public void onClick(View v) {
         if(v.getId() == R.id.goingButton)   {
-
+            //Update in user event database. Add a tuple with event name and user name and going.
         }
         else    {
-
+            //Update in user event database. Add a tuple with event name and user name and not sure.
         }
     }
 }

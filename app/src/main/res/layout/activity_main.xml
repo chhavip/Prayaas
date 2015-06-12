@@ -1,11 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent" android:layout_height="match_parent"
     android:padding="16dp"
     android:orientation="vertical"
     android:id="@+id/home_background"
     >
+
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/rl">
 <TextView
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
@@ -13,15 +20,24 @@
     android:gravity="center"
     android:textSize="20sp"
     android:textColor="@color/black"
+    android:id="@+id/titleAllEvents"
     android:background="@color/amber_A100"
     />
     <android.support.v7.widget.RecyclerView
         android:layout_height="match_parent"
         android:layout_width="match_parent"
         android:id="@+id/rv"
+        android:layout_below="@+id/titleAllEvents"
         >
 
     </android.support.v7.widget.RecyclerView>
+</RelativeLayout>
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:id="@+id/goingFragment"
+        android:name="com.example.chhavi.prayaas.GoingEventFragment"
+        tools:layout="@layout/activity_main"
+        ></FrameLayout>
 
-
-</LinearLayout>
+</RelativeLayout>

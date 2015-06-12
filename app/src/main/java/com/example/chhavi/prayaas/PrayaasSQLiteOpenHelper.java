@@ -24,6 +24,16 @@ public class PrayaasSQLiteOpenHelper extends SQLiteOpenHelper {
                 PrayaasContract.USER_TABLE_REFERRAL_COL+" TEXT"+
 
                 ")");
+        db.execSQL("CREATE TABLE User (USER_ID INTEGER PRIMARY KEY AUTOINCREMENT,"
+                +PrayaasContract.USER_TABLE_NAME_COL+" TEXT,"
+                +PrayaasContract.USER_TABLE_AGE_COL+" INTEGER,"+
+                PrayaasContract.USER_TABLE_USERNAME_COL+" TEXT,"+
+                PrayaasContract.USER_TABLE_GENDER_COL+" TEXT,"+
+                PrayaasContract.USER_TABLE_PHONE_COL+" TEXT,"+
+                PrayaasContract.USER_TABLE_PASSWORD_COL+" TEXT,"+
+                PrayaasContract.USER_TABLE_REFERRAL_COL+" TEXT"+
+
+                ")");
     }
 
     @Override
