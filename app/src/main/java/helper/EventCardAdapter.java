@@ -89,4 +89,6 @@ public class EventCardAdapter extends RecyclerView.Adapter<EventCardAdapter.Even
     public int getItemCount() {
         return events.size();
     }
+
+
 }

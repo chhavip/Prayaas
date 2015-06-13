@@ -48,18 +48,48 @@ public class HomeFragment extends Fragment {
 ListView eventsList;
     RelativeLayout back;
     private List<Events> events;
+    public List<Events> eventsGoing;
+    EventCardAdapter adapter1;
+    RelativeLayout rl;
     private RecyclerView rv;
+    private RecyclerView rvMyEvents;
+    TextView tv;
     String url;
+    TextView tv2;
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         //return super.onCreateView(inflater, container, savedInstanceState);
 
         View v = inflater.inflate(R.layout.activity_main, null);
-        FragmentTransaction transaction = getChildFragmentManager().beginTransaction();
-        GoingEventFragment fragment = new GoingEventFragment();
-        transaction.add(R.id.goingFragment, fragment).commit();
-     //   eventsList = (ListView)v.findViewById(R.id.eventsList);
+//        FragmentTransaction transaction = getChildFragmentManager().beginTransaction();
+//        GoingEventFragment fragment = new GoingEventFragment();
+//        transaction.add(R.id.goingFragment, fragment).commit();
+        rvMyEvents=(RecyclerView)v.findViewById(R.id.myEventsrv);
+        LinearLayoutManager llmMyEvents = new LinearLayoutManager(getActivity(),LinearLayoutManager.HORIZONTAL, false);
+        rvMyEvents.setLayoutManager(llmMyEvents);
+        rvMyEvents.setHasFixedSize(true);
+        rvMyEvents.setItemAnimator(new DefaultItemAnimator());
+        eventsGoing = new ArrayList<>();
+
+        adapter1 = new EventCardAdapter(eventsGoing, R.layout.fragment_going_event);
+
+
+        adapter1.SetOnItemClickListener(new EventCardAdapter.OnItemClickListener() {
+
+            @Override
+            public void onItemClick(View v, int position) {
+                // do something with position
+
+                Intent i = new Intent(getActivity(),EventDetail.class);
+                Events selectedEvent = events.get(position);
+                i.putExtra("selectedEvent", (Serializable) selectedEvent);
+                startActivity(i);
+
+            }
+
+        });
+        rvMyEvents.setAdapter(adapter1);        //   eventsList = (ListView)v.findViewById(R.id.eventsList);
         url = "http://192.168.0.102/android_login_api/fetch_events.php";
         RequestQueue queue = AppController.getInstance().getRequestQueue();
 
@@ -71,21 +101,30 @@ ListView eventsList;
         rv=(RecyclerView)v.findViewById(R.id.rv);
         back = (RelativeLayout)v.findViewById(R.id.home_background);
       //  back.setBackgroundColor(white);
-        LinearLayoutManager llm = new LinearLayoutManager(getActivity());
+        LinearLayoutManager llm = new LinearLayoutManager(getActivity(),LinearLayoutManager.HORIZONTAL, false);
+
         rv.setLayoutManager(llm);
         rv.setHasFixedSize(true);
         rv.setItemAnimator(new DefaultItemAnimator());
         initializeData();
         initializeAdapter();
+        if(eventsGoing.isEmpty())    {
+            rl = (RelativeLayout) v.findViewById(R.id.home_background);
+            rl.removeView(rvMyEvents);
+            tv = (TextView) v.findViewById(R.id.titleAllEvents);
+            tv2 = (TextView) v.findViewById(R.id.titleSelectedEvents);
+                tv2.setVisibility(View.GONE);
+            tv.setY(20);
+        }
         //Read database and check if user event database has any pending events. If yes, display using the following code
         //if cursor.moveToFirst!=null we can make pendingEvents true
         //The fragment has to be hidden when there is no pending event.
         boolean pendingEvents = true;
-        if(pendingEvents)   {
-            //this shifts the layout by exactly the size of our fragment
-            RelativeLayout rl = (RelativeLayout) v.findViewById(R.id.rl);
-            rl.setY(400);
-        }
+//        if(pendingEvents)   {
+//            //this shifts the layout by exactly the size of our fragment
+//            RelativeLayout rl = (RelativeLayout) v.findViewById(R.id.rl);
+//            rl.setY(400);
+//        }
 
 
       //  ArrayAdapter<String> adapter = new ArrayAdapter<String>(getActivity(),android.R.layout.simple_list_item_1, android.R.id.text1, values);
@@ -124,6 +163,7 @@ ListView eventsList;
     }
     private void initializeData(){
         events = new ArrayList<>();
+
         events.add(new Events("Event 1", "7/06/2015","Central Park", R.drawable.nepalim));
         events.add(new Events("Event 2", "7/06/2015","Central Park", R.drawable.nepalim));
         events.add(new Events("Event 3", "7/06/2015","Central Park", R.drawable.nepalim));
@@ -145,11 +185,44 @@ ListView eventsList;
                 Intent i = new Intent(getActivity(),EventDetail.class);
                 Events selectedEvent = events.get(position);
                 i.putExtra("selectedEvent", (Serializable) selectedEvent);
-                startActivity(i);
+                startActivityForResult(i, 1);
             }
         });
         rv.setAdapter(adapter);
 
 
     }
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (data != null) {
+            Bundle b = data.getExtras();
+
+            if(rl.findViewById(R.id.myEventsrv) == null)      {
+                rl.addView(rvMyEvents);
+
+            }
+            Events selectedEvent = (Events) b.get("selectedEvent");
+            if (resultCode == 1) {
+                //going
+                eventsGoing.add(selectedEvent);
+                adapter1.notifyDataSetChanged();
+                tv.setY(220);
+                tv2.setVisibility(View.VISIBLE);
+
+            } else if (resultCode == 2) {
+                //notSure
+                eventsGoing.add(selectedEvent);
+                adapter1.notifyDataSetChanged();
+                tv.setY(220);
+                tv2.setVisibility(View.VISIBLE);
+
+            }
+        }
+
+    }
+
+
+
 }

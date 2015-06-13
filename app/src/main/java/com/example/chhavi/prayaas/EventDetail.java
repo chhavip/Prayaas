@@ -33,13 +33,14 @@ public class EventDetail extends AppCompatActivity implements ObservableScrollVi
     private int mParallaxImageHeight;
     ButtonRectangle going;
     ButtonRectangle notSure;
+    Events events;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_observable_scroll_event_details);
         Intent i = getIntent();
         Bundle b = i.getExtras();
-        Events events = (Events) b.get("selectedEvent");
+        events = (Events) b.get("selectedEvent");
         mImageView = (ImageView) findViewById(R.id.image);
         mImageView.setImageResource(events.imageResource);
         mToolbarView = (Toolbar) findViewById(R.id.toolbar);
@@ -94,8 +95,16 @@ public class EventDetail extends AppCompatActivity implements ObservableScrollVi
     public void onClick(View v) {
         if(v.getId() == R.id.goingButton)   {
             //Update in user event database. Add a tuple with event name and user name and going.
+            Intent i = new Intent();
+            i.putExtra("selectedEvent",events);
+            setResult(1, i);
+            finish();
         }
         else    {
+            Intent i = new Intent();
+            i.putExtra("selectedEvent",events);
+            setResult(2,i);
+            finish();
             //Update in user event database. Add a tuple with event name and user name and not sure.
         }
     }
