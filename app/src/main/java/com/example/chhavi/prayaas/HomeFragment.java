@@ -89,6 +89,7 @@ ListView eventsList;
             }
 
         });
+
         rvMyEvents.setAdapter(adapter1);        //   eventsList = (ListView)v.findViewById(R.id.eventsList);
         url = "http://192.168.0.102/android_login_api/fetch_events.php";
         RequestQueue queue = AppController.getInstance().getRequestQueue();
@@ -208,14 +209,14 @@ ListView eventsList;
                 //going
                 eventsGoing.add(selectedEvent);
                 adapter1.notifyDataSetChanged();
-                tv.setY(220);
+                tv.setY(230);
                 tv2.setVisibility(View.VISIBLE);
 
             } else if (resultCode == 2) {
                 //notSure
                 eventsGoing.add(selectedEvent);
                 adapter1.notifyDataSetChanged();
-                tv.setY(220);
+                tv.setY(230);
                 tv2.setVisibility(View.VISIBLE);
 
             }

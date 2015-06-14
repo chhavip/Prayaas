@@ -18,6 +18,7 @@
         android:id="@+id/rv"
         android:layout_below="@+id/titleSelectedEvents"
         android:padding="10dp"
+
         >
 
     </android.support.v7.widget.RecyclerView>

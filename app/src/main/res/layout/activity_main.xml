@@ -12,10 +12,10 @@
     android:layout_height="wrap_content"
     android:text="All Events"
     android:textSize="20sp"
-    android:textColor="@color/white"
+    android:textColor="@color/blue_700"
     android:layout_below="@+id/myEventsrv"
     android:id="@+id/titleAllEvents"
-    android:background="@color/green_800"
+    android:background="@color/white"
     />
     <android.support.v7.widget.RecyclerView
         android:layout_height="220dp"
@@ -31,9 +31,9 @@
         android:layout_height="wrap_content"
         android:text="My Events"
         android:textSize="20sp"
-        android:textColor="@color/white"
+        android:textColor="@color/blue_700"
         android:id="@+id/titleSelectedEvents"
-        android:background="@color/green_800"
+        android:background="@color/white"
         />
     <android.support.v7.widget.RecyclerView
         android:layout_height="205dp"

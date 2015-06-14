@@ -2,14 +2,12 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:cardview="http://schemas.android.com/apk/res-auto"
     android:layout_width="210dp"
-
     android:layout_height="200dp"
     cardview:cardElevation="10dp"
     cardview:cardMaxElevation = "2dp"
-    cardview:cardCornerRadius = "10dp"
-    cardview:contentPadding = "5dp"
-
     android:id="@+id/cv"
+    android:layout_marginRight="10dp"
+    android:layout_marginTop="2dp"
     >
     <FrameLayout
         android:layout_width="match_parent"
@@ -27,7 +25,7 @@
     xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.example.chhavi.prayaas.GoingEventFragment"
-    android:background="@color/blue_200"
+    android:background="@color/white"
     >
     <LinearLayout
         android:layout_width="match_parent"
@@ -44,6 +42,8 @@
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:text="Event Name"
             android:id="@+id/event_name"
+            android:textColor="@color/black"
+
             android:gravity="center"
 
             />
@@ -62,17 +62,21 @@
                 android:textAppearance="?android:attr/textAppearanceMedium"
                 android:text="Date"
                 android:id="@+id/textView6"
+                android:textColor="@color/black"
+
                 android:gravity="center" />
             <TextView
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
+
                 android:textAppearance="?android:attr/textAppearanceMedium"
                 android:text="15th June"
                 android:id="@+id/event_date"
+                android:textColor="@color/black"
 
 
-                android:gravity="center" />
+                android:gravity="center_vertical" />
         </LinearLayout>
         <LinearLayout
             android:layout_width="match_parent"
@@ -88,6 +92,8 @@
                 android:text="Venue"
                 android:id="@+id/textView8"
                 android:layout_gravity="bottom|left"
+                android:textColor="@color/black"
+
                 android:gravity="center" />
             <TextView
                 android:layout_width="0dp"
@@ -95,8 +101,10 @@
                 android:layout_weight="1"
                 android:textAppearance="?android:attr/textAppearanceMedium"
                 android:text="Place Location"
+                android:textColor="@color/black"
+
                 android:id="@+id/event_venue"
-                android:gravity="center" />
+                android:gravity="center_vertical" />
 
         </LinearLayout>
 
@@ -113,6 +121,8 @@
                 android:textAppearance="?android:attr/textAppearanceMedium"
                 android:text="Time"
                 android:id="@+id/textView7"
+                android:textColor="@color/black"
+
                 android:gravity="center" />
 
             <TextView
@@ -122,41 +132,49 @@
                 android:textAppearance="?android:attr/textAppearanceMedium"
                 android:text="10:00 AM"
                 android:id="@+id/event_time"
-                android:gravity="center" />
+                android:textColor="@color/black"
+                android:gravity="center_vertical" />
         </LinearLayout>
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1"
             android:orientation="horizontal">
-            <com.gc.materialdesign.views.ButtonRectangle
-                android:layout_width="wrap_content"
+            <FrameLayout
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Going"
-                android:background="@color/grey_600"
-                android:id="@+id/button"
-                android:clickable="false"
-                 />
+                android:layout_weight="1"></FrameLayout>
+            <!--<com.gc.materialdesign.views.ButtonRectangle-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:layout_weight="1"-->
+                <!--android:text="Going"-->
+                <!--android:background="@color/grey_600"-->
+                <!--android:id="@+id/button"-->
+                <!--android:clickable="false"-->
+                 <!--/>-->
 
-            <com.gc.materialdesign.views.ButtonRectangle
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Not Sure"
-                android:background="@color/grey_600"
-                android:id="@+id/button2"
-                android:clickable="false"
-              />
+            <!--<com.gc.materialdesign.views.ButtonRectangle-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:layout_weight="1"-->
+                <!--android:text="Not Sure"-->
+                <!--android:background="@color/grey_600"-->
+                <!--android:id="@+id/button2"-->
+                <!--android:clickable="false"-->
+              <!--/>-->
             <com.gc.materialdesign.views.ButtonRectangle
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="Cancel"
                 android:background="@color/btn_logut_bg"
-                android:id="@+id/button3"
-                />
-
+                android:id="@+id/cancelButton"
+                android:layout_gravity="center" />
+            <FrameLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"></FrameLayout>
         </LinearLayout>
 
     </LinearLayout>

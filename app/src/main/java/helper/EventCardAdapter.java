@@ -8,10 +8,12 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.chhavi.prayaas.R;
+import com.gc.materialdesign.views.ButtonRectangle;
 
 import java.util.List;
 
@@ -22,7 +24,9 @@ import models.Events;
  */
 public class EventCardAdapter extends RecyclerView.Adapter<EventCardAdapter.EventHolder> {
     int resId;
-     OnItemClickListener mItemClickListener;
+    int position;
+
+    OnItemClickListener mItemClickListener;
     public class EventHolder extends RecyclerView.ViewHolder implements  View.OnClickListener{
 
         CardView cv;
@@ -51,6 +55,7 @@ public class EventCardAdapter extends RecyclerView.Adapter<EventCardAdapter.Even
 
         }
     }
+
     public interface OnItemClickListener {
         public void onItemClick(View view , int position);
     }
@@ -73,6 +78,16 @@ public class EventCardAdapter extends RecyclerView.Adapter<EventCardAdapter.Even
     @Override
     public EventCardAdapter.EventHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View v = LayoutInflater.from(parent.getContext()).inflate(resId, parent, false);
+//        if  (resId == R.layout.fragment_going_event)  {
+//            com.gc.materialdesign.views.ButtonRectangle  cancelButton = (ButtonRectangle) v.findViewById(R.id.cancelButton);
+//            cancelButton.setOnClickListener(new View.OnClickListener() {
+//                @Override
+//                public void onClick(View v) {
+//                    events.remove(position);
+//
+//                }
+//            });
+//        }
         EventHolder pvh = new EventHolder(v);
         return pvh;
     }
@@ -83,6 +98,7 @@ public class EventCardAdapter extends RecyclerView.Adapter<EventCardAdapter.Even
         holder.eventDate.setText(events.get(position).date);
         holder.eventVenue.setText(events.get(position).Venue);
         holder.eventPhoto.setImageResource(events.get(position).imageResource);
+        this.position = position;
     }
 
     @Override
