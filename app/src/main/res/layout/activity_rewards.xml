@@ -8,42 +8,67 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="Incentives"
+        android:text="INCENTIVES"
         android:id="@+id/textView2"
-        android:textColor="@color/black"
+        android:textSize="12sp"
+        android:textColor="@color/light_blue_300"
+        android:layout_marginTop="15dp"
+        android:layout_marginLeft="10dp"
+
         android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
-
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:background="@color/light_blue_300"
+        android:layout_below="@id/textView2"
+        android:layout_marginRight="20dp"
+        android:layout_marginLeft="10dp"
+        android:id="@+id/view" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="WALLET:"
+        android:id="@+id/textWallet"
+        android:textSize="15sp"
+        android:textColor="@color/black"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="14dp"
+        android:layout_below="@id/view"/>
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Rs 500"
+        android:textSize="15sp"
         android:id="@+id/incentive_value"
         android:textColor="@color/black"
-        android:layout_below="@+id/textView2"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="113dp" />
+        android:layout_marginTop="14dp"
+        android:layout_below="@+id/view"
+        android:layout_marginLeft="20dp"
+        android:layout_toRightOf="@+id/textWallet" />
 
     <com.gc.materialdesign.views.ButtonRectangle
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="50dp"
         android:text="DONATE"
         android:id="@+id/donate_button"
-        android:background="@color/dark_purple_A100"
-        android:layout_marginBottom="96dp"
-        android:layout_alignParentBottom="true"
-        android:layout_toLeftOf="@+id/incentive_value"
-        android:layout_toStartOf="@+id/incentive_value" />
+        android:layout_marginLeft="90dp"
+        android:background="@color/blue_400"
+        android:layout_marginBottom="46dp"
 
+        android:layout_alignParentBottom="true"
+        android:layout_toRightOf="@+id/textWallet"
+        android:layout_toEndOf="@+id/textWallet" />
     <com.gc.materialdesign.views.ButtonRectangle
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="50dp"
         android:text="COLLECT"
-        android:background="@color/dark_purple_A100"
+        android:background="@color/blue_400"
         android:id="@+id/collect_button"
+        android:layout_marginLeft="5dp"
         android:layout_alignTop="@+id/donate_button"
-        android:layout_toRightOf="@+id/incentive_value"
-        android:layout_toEndOf="@+id/incentive_value" />
+        android:layout_toRightOf="@+id/donate_button"
+        android:layout_toEndOf="@+id/donate_button" />
 
 </RelativeLayout>

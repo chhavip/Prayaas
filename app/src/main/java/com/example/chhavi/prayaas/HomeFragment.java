@@ -1,5 +1,6 @@
 package com.example.chhavi.prayaas;
 
+import android.animation.ValueAnimator;
 import android.app.Fragment;
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
@@ -44,7 +45,7 @@ import static com.example.chhavi.prayaas.R.drawable.nepalim;
 /**
  * Created by chhavi on 2/6/15.
  */
-public class HomeFragment extends Fragment {
+public class HomeFragment extends Fragment implements EventCardAdapter.onCancelListener {
 ListView eventsList;
     RelativeLayout back;
     private List<Events> events;
@@ -73,8 +74,7 @@ ListView eventsList;
         eventsGoing = new ArrayList<>();
 
         adapter1 = new EventCardAdapter(eventsGoing, R.layout.fragment_going_event);
-
-
+        adapter1.mOnCancelListener = this;
         adapter1.SetOnItemClickListener(new EventCardAdapter.OnItemClickListener() {
 
             @Override
@@ -165,6 +165,7 @@ ListView eventsList;
     private void initializeData(){
         events = new ArrayList<>();
 
+
         events.add(new Events("Event 1", "7/06/2015","Central Park", R.drawable.nepalim));
         events.add(new Events("Event 2", "7/06/2015","Central Park", R.drawable.nepalim));
         events.add(new Events("Event 3", "7/06/2015","Central Park", R.drawable.nepalim));
@@ -225,5 +226,24 @@ ListView eventsList;
     }
 
 
+    @Override
+    public void onCancelButtonPressed(View v) {
 
+        adapter1.notifyDataSetChanged();
+
+        if (eventsGoing.isEmpty()) {
+            ValueAnimator animator = ValueAnimator.ofFloat(tv.getY(), 20);
+            animator.setDuration(500);
+            animator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
+                @Override
+                public void onAnimationUpdate(ValueAnimator animation) {
+                    tv.setY((Float) animation.getAnimatedValue());
+                    rv.setY((Float) animation.getAnimatedValue()+ 40);
+                }
+            });
+            animator.start();
+            tv2.setVisibility(View.GONE);
+        }
+
+    }
 }

@@ -1,6 +1,7 @@
 package com.example.chhavi.prayaas;
 
 import android.app.ProgressDialog;
+import android.bluetooth.BluetoothProfile;
 import android.content.ContentValues;
 import android.content.Context;
 import android.content.Intent;
@@ -33,6 +34,7 @@ import java.util.Map;
 import app.AppConfig;
 import app.AppController;
 import helper.SQLiteHandler;
+
 
 
 public class OtpActivity extends ActionBarActivity implements View.OnClickListener {

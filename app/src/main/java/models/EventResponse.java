@@ -19,13 +19,37 @@ public class EventResponse {
 
 
     public class EventModel{
-
+        private int Eid;
+        private String name;
+        private String description;
         private String date;
         private String time;
         private String venue;
         private String status;
         private int seats;
+        private String contact;
+        private String duration;
+        public String organisation;
 
+        public void setImageResource(int imageResource) {
+            this.imageResource = imageResource;
+        }
+
+        public void setOrganisation(String organisation) {
+            this.organisation = organisation;
+        }
+
+        private int imageResource;
+
+        public int getImageResource() {
+            return imageResource;
+        }
+
+        public String getOrganisation() {
+            return organisation;
+        }
+
+        //public String description;
         public String getContact() {
             return contact;
         }
@@ -42,8 +66,7 @@ public class EventResponse {
             this.duration = duration;
         }
 
-        private String contact;
-        private String duration;
+
 
         public int getEid() {
             return Eid;
@@ -109,11 +132,7 @@ public class EventResponse {
             this.seats = seats;
         }
 
-        private int Eid;
 
-        private String name;
-
-        private String description;
 
 
 

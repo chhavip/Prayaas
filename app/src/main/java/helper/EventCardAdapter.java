@@ -25,6 +25,13 @@ import models.Events;
 public class EventCardAdapter extends RecyclerView.Adapter<EventCardAdapter.EventHolder> {
     int resId;
     int position;
+    public onCancelListener mOnCancelListener;
+
+    public interface onCancelListener {
+        public void onCancelButtonPressed(View v);
+    }
+
+
 
     OnItemClickListener mItemClickListener;
     public class EventHolder extends RecyclerView.ViewHolder implements  View.OnClickListener{
@@ -78,16 +85,17 @@ public class EventCardAdapter extends RecyclerView.Adapter<EventCardAdapter.Even
     @Override
     public EventCardAdapter.EventHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View v = LayoutInflater.from(parent.getContext()).inflate(resId, parent, false);
-//        if  (resId == R.layout.fragment_going_event)  {
-//            com.gc.materialdesign.views.ButtonRectangle  cancelButton = (ButtonRectangle) v.findViewById(R.id.cancelButton);
-//            cancelButton.setOnClickListener(new View.OnClickListener() {
-//                @Override
-//                public void onClick(View v) {
-//                    events.remove(position);
-//
-//                }
-//            });
-//        }
+        if  (resId == R.layout.fragment_going_event)  {
+            Button  cancelButton = (Button) v.findViewById(R.id.cancelButton);
+            cancelButton.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    events.remove(position);
+                    mOnCancelListener.onCancelButtonPressed(v);
+
+                }
+            });
+        }
         EventHolder pvh = new EventHolder(v);
         return pvh;
     }
