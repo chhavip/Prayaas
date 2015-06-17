@@ -22,7 +22,7 @@ public class NavigationDrawer extends MaterialNavigationDrawer {
         this.addSection(newSection("PROFILE", new ProfileFragment()));
         this.addSection(newSection("REWARDS", new Rewards()));
         this.addSection(newSection("INVITE FRIENDS", new InviteFriends()));
-        this.addSection(newSection("ABOUT US", new FragmentOne()));
+        this.addSection(newSection("ABOUT APP", new AboutAppFragment()));
        this.addAccount(new MaterialAccount(this.getResources(), name, username,null,R.drawable.nepalim));
 
     }

@@ -8,9 +8,9 @@ import java.io.Serializable;
 public class Events implements Serializable {
 
     public String name;
-   public   String date;
-   public String Venue;
-   public int imageResource;
+    public String date;
+    public String Venue;
+    public int imageResource;
     public String description;
     public String time;
     public String status;

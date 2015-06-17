@@ -21,16 +21,18 @@ public class PrayaasContract implements BaseColumns {
     public static final String USER_TABLE_WALLET_ID="UserWalletId";
     public static final String USER_TABLE_DONATED="UserDonated";
 
-    public static final String EVENT_TABLE="Events";
+    public static final String EVENT_TABLE="events";
     public static final String EVENT_TABLE_ID="EventId";
-    public static final String EVENT_TABLE_NAME="EventName";
-    public static final String EVENT_TABLE_DESCRIPTION="EventDescription";
-    public static final String EVENT_TABLE_TIME="Time";
-    public static final String EVENT_TABLE_VENUE="Venue";
-    public static final String EVENT_TABLE_DATE="Date";
-    public static final String EVENT_TABLE_CONTACT="EventContact";
-    public static final String EVENT_TABLE_DURATION="EventDuration";
-    public static final String EVENT_TABLE_STATUS="EventStatus";
+    public static final String EVENT_TABLE_NAME="eventName";
+    public static final String EVENT_TABLE_DESCRIPTION="eventDescription";
+    public static final String EVENT_TABLE_TIME="time";
+    public static final String EVENT_TABLE_VENUE="venue";
+    public static final String EVENT_TABLE_DATE="date";
+    public static final String EVENT_TABLE_CONTACT="eventContact";
+    public static final String EVENT_TABLE_DURATION="eventDuration";
+    public static final String EVENT_TABLE_STATUS="eventStatus";
+    public static final String EVENT_TABLE_ORGANISATION="eventOrganisation";
+    public static final String EVENT_TABLE_SEATS="eventSeats";
 
     public static final String REWARDS_TABLE="Rewards";
     public static final String REWARDS_TABLE_WALLET_ID="RewardsWalletId";

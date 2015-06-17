@@ -30,6 +30,7 @@ import org.json.JSONObject;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Random;
 
 import app.AppConfig;
 import app.AppController;
@@ -40,11 +41,25 @@ import helper.SQLiteHandler;
 public class OtpActivity extends ActionBarActivity implements View.OnClickListener {
     private static final String TAG = OtpActivity.class.getSimpleName();
     EditText otpInput;
-    String desiredOtp;
+    int desiredOtp;
     private ProgressDialog pDialog;
     ContentValues cv;
     SharedPreferences sp;
     private SQLiteHandler db;
+
+    private void showRandomInteger(int aStart, int aEnd, Random aRandom){
+        if (aStart > aEnd) {
+            throw new IllegalArgumentException("Start cannot exceed End.");
+        }
+        //get the range, casting to long to avoid overflow problems
+        long range = (long)aEnd - (long)aStart + 1;
+        // compute a fraction of the range, 0 <= frac < range
+        long fraction = (long)(range * aRandom.nextDouble());
+        desiredOtp =  (int)(fraction + aStart);
+        Log.i("desired", desiredOtp + "");
+
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -56,7 +71,10 @@ public class OtpActivity extends ActionBarActivity implements View.OnClickListen
         Bundle b = i.getExtras();
         cv = (ContentValues) b.get("userdata");
         otpInput = (EditText) findViewById(R.id.otp);
-        desiredOtp =  cv.getAsString(PrayaasContract.USER_TABLE_NAME_COL).substring(0,2) + cv.getAsString(PrayaasContract.USER_TABLE_PHONE_COL).substring(7);
+//        desiredOtp =  cv.getAsString(PrayaasContract.USER_TABLE_NAME_COL).substring(0,2) + cv.getAsString(PrayaasContract.USER_TABLE_PHONE_COL).substring(7);
+       Random random = new Random();
+        showRandomInteger(1000, 9999, random);
+
         String phoneNum = (String) cv.get(PrayaasContract.USER_TABLE_PHONE_COL);
         phoneNumber.setText(phoneNum);
         SmsManager smsManager = SmsManager.getDefault();
@@ -64,7 +82,6 @@ public class OtpActivity extends ActionBarActivity implements View.OnClickListen
         //smsManager.sendTextMessage("9873371087", null, message, null, null);
         Button button = (Button) findViewById(R.id.verifyButton);
         button.setOnClickListener(this);
-        Log.i("desired", desiredOtp);
 
     }
 
@@ -93,16 +110,16 @@ public class OtpActivity extends ActionBarActivity implements View.OnClickListen
 
     @Override
     public void onClick(View v) {
-        String otpInputString = otpInput.getText().toString();
-        if(otpInputString.equals(desiredOtp))  {
+        int otpInputString = Integer.valueOf(otpInput.getText().toString());
+        if(otpInputString == desiredOtp)  {
        //     PrayaasSQLiteOpenHelper helper = new PrayaasSQLiteOpenHelper(this);
         //    SQLiteDatabase db = helper.getWritableDatabase();
          //   db.insert(PrayaasContract.USER_TABLE, null, cv);
          //   savePreferences(cv);
-         //   Intent i = new Intent();
-         //   i.setClass(this, NavigationDrawer.class);
-         //   i.putExtra("userdata", cv);
-          //  startActivityr(i);
+//            Intent i = new Intent();
+//            i.setClass(this, NavigationDrawer.class);
+//            i.putExtra("userdata", cv);
+//            startActivityr(i);
     String name = cv.getAsString(PrayaasContract.USER_TABLE_NAME_COL);
             String email = cv.getAsString(PrayaasContract.USER_TABLE_USERNAME_COL);
             String password = cv.getAsString(PrayaasContract.USER_TABLE_PASSWORD_COL);
@@ -215,5 +232,6 @@ public class OtpActivity extends ActionBarActivity implements View.OnClickListen
         if (pDialog.isShowing())
             pDialog.dismiss();
     }
+
 
 }

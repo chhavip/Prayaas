@@ -1,0 +1,70 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/logo"
+    android:id="@+id/logodesign">
+
+<ScrollView
+
+    android:id="@+id/SCROLLER_ID"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:scrollbars="vertical"
+    android:fillViewport="true">
+
+<LinearLayout  android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.chhavi.prayaas.AboutAppFragment"
+    android:orientation="vertical">
+
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/blue_grey_600"
+        android:alpha="0.8">
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        android:text="@string/aboutApp"
+        android:padding="10dp"
+        android:textColor="@color/white"
+        android:lineSpacingExtra="3sp"
+        />
+    </FrameLayout>
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/blue_grey_600"
+        android:alpha="0.8">
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/note"
+        android:padding="10dp"
+
+        android:textColor="@color/white"
+        android:lineSpacingExtra="3sp"
+        />
+    </FrameLayout>
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:background="@color/blue_grey_600"
+        android:alpha="0.8"
+        android:id="@+id/sponsors"
+        >
+
+
+    </FrameLayout>
+
+
+    <!-- TODO: Update blank fragment layout -->
+
+
+</LinearLayout>
+
+</ScrollView>
+</FrameLayout>

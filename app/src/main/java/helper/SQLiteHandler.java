@@ -12,7 +12,11 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
 
+import com.example.chhavi.prayaas.PrayaasContract;
+
 import java.util.HashMap;
+
+import models.EventResponse;
 
 public class SQLiteHandler extends SQLiteOpenHelper {
 
@@ -46,8 +50,22 @@ public class SQLiteHandler extends SQLiteOpenHelper {
 				+ KEY_ID + " INTEGER PRIMARY KEY," + KEY_NAME + " TEXT,"
 				+ KEY_EMAIL + " TEXT UNIQUE," + KEY_UID + " TEXT,"
 				+ KEY_CREATED_AT + " TEXT" + ")";
-		db.execSQL(CREATE_LOGIN_TABLE);
 
+		String CREATE_EVENT_TABLE = "CREATE TABLE events (EVENT_ID INTEGER PRIMARY KEY AUTOINCREMENT,"
+				+ PrayaasContract.EVENT_TABLE_NAME+" TEXT,"
+				+PrayaasContract.EVENT_TABLE_SEATS+" INTEGER,"+
+				PrayaasContract.EVENT_TABLE_DESCRIPTION+" TEXT,"+
+				PrayaasContract.EVENT_TABLE_CONTACT+" TEXT,"+
+				PrayaasContract.EVENT_TABLE_DATE+" TEXT,"+
+				PrayaasContract.EVENT_TABLE_DURATION+" TEXT,"+
+				PrayaasContract.EVENT_TABLE_STATUS+" TEXT,"+
+				PrayaasContract.EVENT_TABLE_TIME+" TEXT,"+
+				PrayaasContract.EVENT_TABLE_VENUE+" TEXT,"+
+				PrayaasContract.EVENT_TABLE_ORGANISATION+" TEXT"+
+
+				")";
+		db.execSQL(CREATE_LOGIN_TABLE);
+		db.execSQL(CREATE_EVENT_TABLE);
 		Log.d(TAG, "Database tables created");
 	}
 
@@ -64,6 +82,24 @@ public class SQLiteHandler extends SQLiteOpenHelper {
 	/**
 	 * Storing user details in database
 	 * */
+
+	public void addEvent(EventResponse.EventModel event)	{
+		SQLiteDatabase db = this.getWritableDatabase();
+		ContentValues cv = new ContentValues();
+		cv.put(PrayaasContract.EVENT_TABLE_NAME, event.getName());
+		cv.put(PrayaasContract.EVENT_TABLE_DESCRIPTION, event.getDescription());
+		cv.put(PrayaasContract.EVENT_TABLE_TIME, event.getTime());
+		cv.put(PrayaasContract.EVENT_TABLE_STATUS, event.getStatus());
+		cv.put(PrayaasContract.EVENT_TABLE_CONTACT, event.getContact());
+		cv.put(PrayaasContract.EVENT_TABLE_SEATS, event.getSeats());
+		cv.put(PrayaasContract.EVENT_TABLE_ORGANISATION, event.getOrganisation());
+		cv.put(PrayaasContract.EVENT_TABLE_DURATION, event.getDuration());
+		cv.put(PrayaasContract.EVENT_TABLE_DATE, event.getDate());
+		long id = db.insert(PrayaasContract.EVENT_TABLE, null, cv);
+		db.close();
+
+	}
+
 	public void addUser(String name, String email, String uid, String created_at) {
 		SQLiteDatabase db = this.getWritableDatabase();
 
@@ -108,8 +144,8 @@ public class SQLiteHandler extends SQLiteOpenHelper {
 	/**
 	 * Getting user login status return true if rows are there in table
 	 * */
-	public int getRowCount() {
-		String countQuery = "SELECT  * FROM " + TABLE_LOGIN;
+	public int getRowCount(String tableName) {
+		String countQuery = "SELECT  * FROM " + tableName;
 		SQLiteDatabase db = this.getReadableDatabase();
 		Cursor cursor = db.rawQuery(countQuery, null);
 		int rowCount = cursor.getCount();

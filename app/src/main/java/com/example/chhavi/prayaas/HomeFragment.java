@@ -208,17 +208,37 @@ ListView eventsList;
             Events selectedEvent = (Events) b.get("selectedEvent");
             if (resultCode == 1) {
                 //going
+                if(eventsGoing.isEmpty())   {
+
+                    tv.setY(80);
+                    rv.setY(115);
+                    tv2.setVisibility(View.VISIBLE);
+                    rvMyEvents.setVisibility(View.VISIBLE);
+
+                }
+
                 eventsGoing.add(selectedEvent);
                 adapter1.notifyDataSetChanged();
-                tv.setY(230);
-                tv2.setVisibility(View.VISIBLE);
+
+
 
             } else if (resultCode == 2) {
                 //notSure
+//                eventsGoing.add(selectedEvent);
+//                adapter1.notifyDataSetChanged();
+//                tv.setY(230);
+//                rv.setY(270);
+//                tv2.setVisibility(View.VISIBLE);
+//                rvMyEvents.setVisibility(View.VISIBLE);
+                if(eventsGoing.isEmpty())   {
+                    tv.setY(80);
+                    rv.setY(115);
+                    tv2.setVisibility(View.VISIBLE);
+                    rvMyEvents.setVisibility(View.VISIBLE);
+
+                }
                 eventsGoing.add(selectedEvent);
                 adapter1.notifyDataSetChanged();
-                tv.setY(230);
-                tv2.setVisibility(View.VISIBLE);
 
             }
         }
@@ -238,11 +258,12 @@ ListView eventsList;
                 @Override
                 public void onAnimationUpdate(ValueAnimator animation) {
                     tv.setY((Float) animation.getAnimatedValue());
-                    rv.setY((Float) animation.getAnimatedValue()+ 40);
+                    rv.setY((Float) animation.getAnimatedValue()+ 35);
                 }
             });
             animator.start();
             tv2.setVisibility(View.GONE);
+            rvMyEvents.setVisibility(View.GONE);
         }
 
     }

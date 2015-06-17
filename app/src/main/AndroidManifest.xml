@@ -4,6 +4,7 @@
 
     <uses-permission android:name="android.permission.SEND_SMS" />
     <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:name="app.AppController"
         android:allowBackup="true"
@@ -18,7 +19,6 @@
             android:name=".NavigationDrawer"
             android:theme="@style/MyNavigationDrawerTheme" >
 
-
             <!-- <intent-filter> -->
             <!-- <action android:name="android.intent.action.MAIN" /> -->
 
@@ -28,22 +28,17 @@
         </activity>
         <activity
             android:name=".LoginActivityNet"
-            android:theme="@style/login">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN"/>
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+            android:theme="@style/login" >
 
         </activity>
-        <activity android:name=".SignUpActivityNet"
-            android:label="Sign Up">
+        <activity
+            android:name=".SignUpActivityNet"
+            android:label="Sign Up" >
         </activity>
-
         <activity
             android:name=".OtpActivity"
             android:label="@string/title_activity_otp" >
         </activity>
-
         <activity
             android:name=".DonateActivity"
             android:label="Donate" >
@@ -51,6 +46,15 @@
         <activity
             android:name=".EventDetail"
             android:label="Event Description" >
+        </activity>
+        <activity
+            android:name=".SplashScreenActivity"
+            android:label="@string/title_activity_splash_screen" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
     </application>
 
