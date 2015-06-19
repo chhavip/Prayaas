@@ -1,47 +1,47 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent" android:layout_height="match_parent"
     android:orientation="vertical"
     android:id="@+id/home_background"
-    android:background="@color/grey_200"
+    android:background="@color/grey_100"
+    android:layout_marginTop="10dp"
+    android:layout_marginBottom="10dp"
     >
 
-<TextView
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:text="All Events"
-    android:textSize="20sp"
-    android:textColor="@color/blue_700"
-    android:layout_below="@+id/myEventsrv"
-    android:id="@+id/titleAllEvents"
-    />
-    <android.support.v7.widget.RecyclerView
-        android:layout_height="220dp"
-        android:layout_width="match_parent"
-        android:id="@+id/rv"
-        android:layout_below="@+id/titleAllEvents"
-        >
+<!--<TextView-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="0dp"-->
+    <!--android:layout_weight="1"-->
+    <!--android:text="All Events"-->
+    <!--android:textSize="20sp"-->
+    <!--android:textStyle="bold"-->
+    <!--android:layout_marginStart="5dp"-->
+    <!--android:gravity="center_vertical"-->
+    <!--android:textColor="@color/secondary_text"-->
+    <!--android:id="@+id/titleAllEvents"-->
 
-    </android.support.v7.widget.RecyclerView>
+    <!--/>-->
+    <!--<View-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="2dp"-->
+        <!--android:background="@color/accent"-->
+        <!--android:layout_marginStart="5dp"-->
+        <!--android:layout_marginEnd="5dp"-->
+        <!--android:layout_below="@+id/titleAllEvents"-->
+        <!--></View>-->
+    <!--<android.support.v7.widget.RecyclerView-->
+        <!--android:layout_height="0dp"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_weight="15"-->
+        <!--android:id="@+id/rv"-->
+        <!--android:layout_below="@+id/titleAllEvents"-->
+        <!-->-->
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="My Events"
-        android:textSize="20sp"
-        android:textColor="@color/blue_700"
-        android:id="@+id/titleSelectedEvents"
-        />
-    <android.support.v7.widget.RecyclerView
-        android:layout_height="205dp"
-        android:layout_width="match_parent"
-        android:id="@+id/myEventsrv"
-        android:layout_below="@+id/titleSelectedEvents"
-        >    </android.support.v7.widget.RecyclerView>
+    <!--</android.support.v7.widget.RecyclerView>-->
 
-</RelativeLayout>
+</LinearLayout>
     <!--<FrameLayout-->
         <!--android:layout_width="match_parent"-->
         <!--android:layout_height="200dp"-->

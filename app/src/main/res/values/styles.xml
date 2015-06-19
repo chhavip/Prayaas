@@ -2,15 +2,15 @@
 
     <!-- Base application theme. -->
     <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
-        <item name="colorPrimary">#2196F3</item>
-        <item name="colorPrimaryDark">#1976D2</item>
-        <item name="colorAccent">#448AFF</item>    </style>
+        <item name="colorPrimary">@color/primary</item>
+        <item name="colorPrimaryDark">@color/primary_dark</item>
+        <item name="colorAccent">@color/accent</item>    </style>
 
     <style name="MyNavigationDrawerTheme" parent="MaterialNavigationDrawerTheme">
-        <item name="colorPrimary">#2196F3</item>
-        <item name="colorPrimaryDark">#1976D2</item>
-        <item name="colorAccent">#448AFF</item>
-        <item name="drawerColor">@color/blue_700</item>
+        <item name="colorPrimary">@color/primary</item>
+        <item name="colorPrimaryDark">@color/primary_dark</item>
+        <item name="colorAccent">@color/accent</item>
+        <item name="drawerColor">@color/primary_dark_material_dark</item>
         <item name="singleAccount">true</item>
         <item name="android:windowBackground">@color/white</item>
     </style>
@@ -23,5 +23,10 @@
         <item name="colorPrimary">@color/bg_login</item>
         <item name="colorPrimaryDark">#1c745e</item>
         <item name="colorAccent">#28ccac</item>
+    </style>
+    <style name="profile" parent="Theme.AppCompat">
+        <item name="colorPrimary">@color/pink_400</item>
+        <item name="colorPrimaryDark">@color/pink_700</item>
+        <item name="colorAccent">@color/pink_300</item>
     </style>
 </resources>

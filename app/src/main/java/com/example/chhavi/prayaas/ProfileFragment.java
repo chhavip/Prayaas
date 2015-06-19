@@ -1,14 +1,26 @@
 package com.example.chhavi.prayaas;
 
 
+import android.app.ActionBar;
 import android.app.Fragment;
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
+import android.support.v7.internal.view.ContextThemeWrapper;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+
+import com.gc.materialdesign.views.ButtonRectangle;
+import com.melnykov.fab.FloatingActionButton;
+
+import helper.SessionManager;
 
 
 /**
@@ -16,7 +28,7 @@ import android.widget.TextView;
  * Use the {@link ProfileFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class ProfileFragment extends Fragment {
+public class ProfileFragment extends Fragment implements View.OnClickListener {
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -45,6 +57,7 @@ public class ProfileFragment extends Fragment {
         return fragment;
     }
 
+
     public ProfileFragment() {
         // Required empty public constructor
     }
@@ -58,28 +71,50 @@ public class ProfileFragment extends Fragment {
         }
     }
 
-
+    ButtonRectangle logout;
+    FloatingActionButton fab;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View v =  inflater.inflate(R.layout.fragment_profile, container, false);
+        // create ContextThemeWrapper from the original Activity Context with the custom theme
+        final Context contextThemeWrapper = new ContextThemeWrapper(getActivity() , R.style.profile);
+
+        // clone the inflater using the ContextThemeWrapper
+        LayoutInflater localInflater = inflater.cloneInContext(contextThemeWrapper);
+
+        // inflate the layout using the cloned inflater, not default inflater
+
+        View v = localInflater.inflate(R.layout.fragment_profile, container, false);
         SharedPreferences sp = getActivity().getSharedPreferences("Prayaas", Context.MODE_PRIVATE);
         TextView name = (TextView) v.findViewById(R.id.profileFragmentName);
         TextView phone = (TextView) v.findViewById(R.id.profileFragmentPhone);
         TextView email = (TextView) v.findViewById(R.id.profileFragmentEmail);
         name.setText(sp.getString(PrayaasContract.USER_TABLE_NAME_COL, null));
         phone.setText(sp.getString(PrayaasContract.USER_TABLE_PHONE_COL, null));
+        logout = (ButtonRectangle) v.findViewById(R.id.LogOut);
+        logout.setOnClickListener(this);
+        fab = (FloatingActionButton) v.findViewById(R.id.fab);
+        fab.setOnClickListener(this);
         email.setText(sp.getString(PrayaasContract.USER_TABLE_USERNAME_COL, null));
-
         return v;
 
     }
 
-    public void onClickEdit(View v) {
-//TODO edit profile
 
+
+
+    @Override
+    public void onClick(View v) {
+        if(v.getId() == R.id.fab)   {
+            //TODO edit profile
+        }
+        else {
+            SessionManager sessionManager = new SessionManager(getActivity());
+            sessionManager.setLogin(false);
+            Intent i = new Intent();
+            i.setClass(getActivity(), LoginActivityNet.class);
+            startActivity(i);
+        }
     }
-
-
 }

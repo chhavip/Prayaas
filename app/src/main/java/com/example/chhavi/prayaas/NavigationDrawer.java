@@ -4,6 +4,7 @@ import android.content.ContentValues;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.view.Menu;
 
 import it.neokree.materialnavigationdrawer.MaterialNavigationDrawer;
 import it.neokree.materialnavigationdrawer.elements.MaterialAccount;
@@ -26,4 +27,7 @@ public class NavigationDrawer extends MaterialNavigationDrawer {
        this.addAccount(new MaterialAccount(this.getResources(), name, username,null,R.drawable.nepalim));
 
     }
+
+
+
 }

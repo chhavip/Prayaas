@@ -39,7 +39,6 @@ public class EventCardAdapter extends RecyclerView.Adapter<EventCardAdapter.Even
         CardView cv;
         TextView eventName;
         TextView eventDate;
-        TextView eventVenue;
         ImageView eventPhoto;
 
 
@@ -48,7 +47,6 @@ public class EventCardAdapter extends RecyclerView.Adapter<EventCardAdapter.Even
             cv = (CardView)itemView.findViewById(R.id.cv);
             eventName = (TextView)itemView.findViewById(R.id.event_name);
             eventDate = (TextView)itemView.findViewById(R.id.event_date);
-            eventVenue = (TextView)itemView.findViewById(R.id.event_venue);
             eventPhoto = (ImageView)itemView.findViewById(R.id.event_image);
             itemView.setOnClickListener(this);
         }
@@ -104,7 +102,6 @@ public class EventCardAdapter extends RecyclerView.Adapter<EventCardAdapter.Even
     public void onBindViewHolder(EventCardAdapter.EventHolder holder, int position) {
             holder.eventName.setText(events.get(position).name);
         holder.eventDate.setText(events.get(position).date);
-        holder.eventVenue.setText(events.get(position).Venue);
         holder.eventPhoto.setImageResource(events.get(position).imageResource);
         this.position = position;
     }

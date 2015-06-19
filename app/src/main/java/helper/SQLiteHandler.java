@@ -82,7 +82,7 @@ public class SQLiteHandler extends SQLiteOpenHelper {
 	/**
 	 * Storing user details in database
 	 * */
-
+//Add event using this function.
 	public void addEvent(EventResponse.EventModel event)	{
 		SQLiteDatabase db = this.getWritableDatabase();
 		ContentValues cv = new ContentValues();
@@ -97,6 +97,18 @@ public class SQLiteHandler extends SQLiteOpenHelper {
 		cv.put(PrayaasContract.EVENT_TABLE_DATE, event.getDate());
 		long id = db.insert(PrayaasContract.EVENT_TABLE, null, cv);
 		db.close();
+
+	}
+
+	public void editUserName()	{
+
+	}
+
+	public void editUserEmail()	{
+
+	}
+
+	public void editUserPhone()	{
 
 	}
 

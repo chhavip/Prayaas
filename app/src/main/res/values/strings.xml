@@ -55,4 +55,7 @@ Prayaas is an app-based platform designed to connect volunteers to the NGOs and 
     <string name="note">Note - We don’t mean to commercialise ourselves or bring any negative impression at the users end. We have added the Rewards Section just to cover up the basic costs that the user has to bear while volunteering and acknowledging his hard work.</string>
     <string name="title_activity_splash_screen">Prayaas</string>
 
+<!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
 </resources>
