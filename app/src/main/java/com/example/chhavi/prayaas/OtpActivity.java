@@ -34,19 +34,22 @@ import java.util.Random;
 
 import app.AppConfig;
 import app.AppController;
+import helper.OtpSenderAsyncTask;
 import helper.SQLiteHandler;
-
+import models.OtpContent;
 
 
 public class OtpActivity extends ActionBarActivity implements View.OnClickListener {
     private static final String TAG = OtpActivity.class.getSimpleName();
     EditText otpInput;
     int desiredOtp;
+    String referral;
     private ProgressDialog pDialog;
     ContentValues cv;
     SharedPreferences sp;
     private SQLiteHandler db;
-
+    String phoneNum;
+    String message;
     private void showRandomInteger(int aStart, int aEnd, Random aRandom){
         if (aStart > aEnd) {
             throw new IllegalArgumentException("Start cannot exceed End.");
@@ -57,7 +60,6 @@ public class OtpActivity extends ActionBarActivity implements View.OnClickListen
         long fraction = (long)(range * aRandom.nextDouble());
         desiredOtp =  (int)(fraction + aStart);
         Log.i("desired", desiredOtp + "");
-
     }
 
     @Override
@@ -71,17 +73,20 @@ public class OtpActivity extends ActionBarActivity implements View.OnClickListen
         Bundle b = i.getExtras();
         cv = (ContentValues) b.get("userdata");
         otpInput = (EditText) findViewById(R.id.otp);
-//        desiredOtp =  cv.getAsString(PrayaasContract.USER_TABLE_NAME_COL).substring(0,2) + cv.getAsString(PrayaasContract.USER_TABLE_PHONE_COL).substring(7);
+        referral =  cv.getAsString(PrayaasContract.USER_TABLE_NAME_COL).substring(0,2) + cv.getAsString(PrayaasContract.USER_TABLE_PHONE_COL).substring(7);
        Random random = new Random();
         showRandomInteger(1000, 9999, random);
 
-        String phoneNum = (String) cv.get(PrayaasContract.USER_TABLE_PHONE_COL);
+        phoneNum = (String) cv.get(PrayaasContract.USER_TABLE_PHONE_COL);
         phoneNumber.setText(phoneNum);
-        SmsManager smsManager = SmsManager.getDefault();
-        String message = "This is an otp request from "+ phoneNum + " name is " + cv.get(PrayaasContract.USER_TABLE_NAME_COL);
-        //smsManager.sendTextMessage("9873371087", null, message, null, null);
+//        SmsManager smsManager = SmsManager.getDefault();
+//        String message = "This is an otp request from "+ phoneNum + " name is " + cv.get(PrayaasContract.USER_TABLE_NAME_COL);
+//        //smsManager.sendTextMessage("9873371087", null, message, null, null);
         Button button = (Button) findViewById(R.id.verifyButton);
         button.setOnClickListener(this);
+        message = "The otp for the number " + phoneNum + " is " + desiredOtp;
+        sendOtpRequest();
+
 
     }
 
@@ -120,16 +125,25 @@ public class OtpActivity extends ActionBarActivity implements View.OnClickListen
 //            i.setClass(this, NavigationDrawer.class);
 //            i.putExtra("userdata", cv);
 //            startActivityr(i);
+
     String name = cv.getAsString(PrayaasContract.USER_TABLE_NAME_COL);
             String email = cv.getAsString(PrayaasContract.USER_TABLE_USERNAME_COL);
             String password = cv.getAsString(PrayaasContract.USER_TABLE_PASSWORD_COL);
             String phone = cv.getAsString(PrayaasContract.USER_TABLE_PHONE_COL);
 
-            registerUser(name,email,password);
+            registerUser(name,email,password,referral);
         }
 
 
     }
+
+    public void sendOtpRequest() {
+
+        OtpSenderAsyncTask task = new OtpSenderAsyncTask(this);
+        OtpContent otpContent = new OtpContent(message, phoneNum);
+        task.execute(otpContent);
+    }
+
     public void savePreferences(ContentValues cv)   {
         SharedPreferences.Editor editor = sp.edit();
         editor.putString(PrayaasContract.USER_TABLE_NAME_COL,cv.getAsString(PrayaasContract.USER_TABLE_NAME_COL));
@@ -143,11 +157,12 @@ public class OtpActivity extends ActionBarActivity implements View.OnClickListen
     }
 
     private void registerUser(final String name, final String email,
-                              final String password) {
+                              final String password, final String referral) {
         // Tag used to cancel the request
         String tag_string_req = "req_register";
+        //TODO send referral code and phone number as well.
 
-       // pDialog.setMessage("Registering ...");
+        // pDialog.setMessage("Registering ...");
       //  showDialog();
 
         StringRequest strReq = new StringRequest(Request.Method.POST,

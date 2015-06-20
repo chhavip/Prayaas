@@ -4,9 +4,11 @@ package com.example.chhavi.prayaas;
 import android.app.ActionBar;
 import android.app.Fragment;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.internal.view.ContextThemeWrapper;
 import android.view.LayoutInflater;
@@ -15,7 +17,9 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.gc.materialdesign.views.ButtonRectangle;
 import com.melnykov.fab.FloatingActionButton;
@@ -73,6 +77,7 @@ public class ProfileFragment extends Fragment implements View.OnClickListener {
 
     ButtonRectangle logout;
     FloatingActionButton fab;
+    SharedPreferences sp;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -86,7 +91,7 @@ public class ProfileFragment extends Fragment implements View.OnClickListener {
         // inflate the layout using the cloned inflater, not default inflater
 
         View v = localInflater.inflate(R.layout.fragment_profile, container, false);
-        SharedPreferences sp = getActivity().getSharedPreferences("Prayaas", Context.MODE_PRIVATE);
+        sp = getActivity().getSharedPreferences("Prayaas", Context.MODE_PRIVATE);
         TextView name = (TextView) v.findViewById(R.id.profileFragmentName);
         TextView phone = (TextView) v.findViewById(R.id.profileFragmentPhone);
         TextView email = (TextView) v.findViewById(R.id.profileFragmentEmail);
@@ -108,6 +113,33 @@ public class ProfileFragment extends Fragment implements View.OnClickListener {
     public void onClick(View v) {
         if(v.getId() == R.id.fab)   {
             //TODO edit profile
+            AlertDialog.Builder b = new AlertDialog.Builder(getActivity());
+            b.setTitle("Enter Password");
+
+            View v1 = getActivity().getLayoutInflater().inflate(R.layout.confirm_password_dialog, null);
+            b.setView(v1);
+            final EditText editText = (EditText) v1.findViewById(R.id.passwordConfirm);
+            b.setPositiveButton("Confirm", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+                    if(editText.getText().toString().equals(sp.getString(PrayaasContract.USER_TABLE_PASSWORD_COL, null)))    {
+                        Intent i = new Intent();
+                        i.setClass(getActivity(), EditProfileActivity.class);
+                        startActivity(i);
+                    }
+                    else
+                    {
+                        Toast.makeText(getActivity(), sp.getString(PrayaasContract.USER_TABLE_PASSWORD_COL, null), Toast.LENGTH_SHORT).show();
+                    }
+                }
+            });
+            b.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+                    dialog.cancel();
+                }
+            });
+            b.create().show();
         }
         else {
             SessionManager sessionManager = new SessionManager(getActivity());

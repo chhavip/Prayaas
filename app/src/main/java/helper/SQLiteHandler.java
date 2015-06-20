@@ -100,6 +100,14 @@ public class SQLiteHandler extends SQLiteOpenHelper {
 
 	}
 
+    public void fetchEventsFromServerDatabase()   {
+
+    }
+
+    public void editEventStatus()   {
+
+    }
+
 	public void editUserName()	{
 
 	}

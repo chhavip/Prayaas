@@ -93,6 +93,7 @@ public class SignUpActivityNet extends Activity {
           //          cv.put(PrayaasContract.USER_TABLE_GENDER_COL, gender);
           //          if(referral.getText().toString()!=null)
           //              cv.put(PrayaasContract.USER_TABLE_REFERRAL_COL, referral.getText().toString());
+
                     Intent i = new Intent();
                     i.setClass(SignUpActivityNet.this, OtpActivity.class);
                     i.putExtra("userdata", cv);

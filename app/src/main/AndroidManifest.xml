@@ -29,7 +29,6 @@
         <activity
             android:name=".LoginActivityNet"
             android:theme="@style/login" >
-
         </activity>
         <activity
             android:name=".SignUpActivityNet"
@@ -55,6 +54,10 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+        <activity
+            android:name=".EditProfileActivity"
+            android:label="@string/title_activity_edit_profile" >
         </activity>
     </application>
 
