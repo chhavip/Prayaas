@@ -6,7 +6,9 @@ import android.app.FragmentTransaction;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v4.app.FragmentStatePagerAdapter;
 import android.support.v4.view.ViewPager;
+import android.support.v7.app.ActionBar;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -36,6 +38,9 @@ import app.AppController;
 import helper.EventCardAdapter;
 import helper.GsonRequest;
 import helper.PrayaasFragmentPagerAdapter;
+import it.neokree.materialtabs.MaterialTab;
+import it.neokree.materialtabs.MaterialTabHost;
+import it.neokree.materialtabs.MaterialTabListener;
 import models.EventResponse;
 import models.Events;
 import android.support.v4.app.Fragment;
@@ -46,8 +51,8 @@ import static com.example.chhavi.prayaas.R.drawable.nepalim;
 /**
  * Created by chhavi on 2/6/15.
  */
-public class HomeFragment extends android.support.v4.app.Fragment{
-//ListView eventsList;
+public class HomeFragment extends android.support.v4.app.Fragment implements MaterialTabListener {
+    //ListView eventsList;
 //    RelativeLayout back;
 //    private List<Events> events;
 //    public List<Events> eventsGoing;
@@ -61,16 +66,60 @@ public class HomeFragment extends android.support.v4.app.Fragment{
 //    int goingEventsSize;
     PrayaasFragmentPagerAdapter adapter;
     ViewPager pager;
+    MaterialTabHost tabHost;
+
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         //return super.onCreateView(inflater, container, savedInstanceState);
 
-        View v = inflater.inflate(R.layout.fragment_home, container, false);
+        View view = inflater.inflate(R.layout.fragment_home, container, false);
 
         adapter = new PrayaasFragmentPagerAdapter(this.getActivity().getSupportFragmentManager());
-        pager = (ViewPager) v.findViewById(R.id.pager);
+//        pager = (ViewPager) v.findViewById(R.id.pager);
+//        pager.setAdapter(adapter);
+
+
+        tabHost = (MaterialTabHost) view.findViewById(R.id.materialTabHost);
+        pager = (ViewPager) view.findViewById(R.id.pager );
+
+        // init view pager
+
         pager.setAdapter(adapter);
+        pager.setOnPageChangeListener(new ViewPager.SimpleOnPageChangeListener() {
+            @Override
+            public void onPageSelected(int position) {
+                // when user do a swipe the selected tab change
+                tabHost.setSelectedNavigationItem(position);
+
+            }
+        });
+
+        // insert all tabs from pagerAdapter data
+        for (int i = 0; i < adapter.getCount(); i++) {
+            tabHost.addTab(
+                    tabHost.newTab()
+                            .setText(adapter.getPageTitle(i))
+                            .setTabListener(this)
+            );
+
+        }
+
+        return view;
+    }
+
+    @Override
+    public void onTabSelected(MaterialTab tab) {
+        // when the tab is clicked the pager swipe content to the tab position
+        pager.setCurrentItem(tab.getPosition());
+
+    }
+    @Override
+    public void onTabReselected(MaterialTab tab) {}
+
+    @Override
+    public void onTabUnselected(MaterialTab tab) {}
+
 
 
 //
@@ -117,9 +166,9 @@ public class HomeFragment extends android.support.v4.app.Fragment{
 //                tv2.setVisibility(View.GONE);
 //            tv.setY(20);
 //        }
-        //Read database and check if user event database has any pending events. If yes, display using the following code
-        //if cursor.moveToFirst!=null we can make pendingEvents true
-        //The fragment has to be hidden when there is no pending event.
+    //Read database and check if user event database has any pending events. If yes, display using the following code
+    //if cursor.moveToFirst!=null we can make pendingEvents true
+    //The fragment has to be hidden when there is no pending event.
 //        boolean pendingEvents = true;
 //        if(pendingEvents)   {
 //            //this shifts the layout by exactly the size of our fragment
@@ -127,10 +176,10 @@ public class HomeFragment extends android.support.v4.app.Fragment{
 //            rl.setY(400);
 //        }
 
-        return v;
-    }
+//    return view;
+//}
 
-//    public void onDestroyView() {
+    //    public void onDestroyView() {
 //        super.onDestroyView();
 //        Fragment f = (Fragment) getFragmentManager()
 //                .findFragmentById(R.id.goingFragment);

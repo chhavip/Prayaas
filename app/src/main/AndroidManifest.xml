@@ -40,7 +40,8 @@
         </activity>
         <activity
             android:name=".DonateActivity"
-            android:label="Donate" >
+            android:label="Donate"
+            android:theme="@style/donate" >
         </activity>
         <activity
             android:name=".EventDetail"
@@ -58,6 +59,11 @@
         <activity
             android:name=".EditProfileActivity"
             android:label="@string/title_activity_edit_profile" >
+        </activity>
+        <activity
+            android:name=".CollectActivity"
+            android:label="@string/title_activity_collect"
+            android:theme="@style/collect">
         </activity>
     </application>
 

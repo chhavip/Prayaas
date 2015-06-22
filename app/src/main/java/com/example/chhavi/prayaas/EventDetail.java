@@ -32,7 +32,6 @@ public class EventDetail extends AppCompatActivity implements ObservableScrollVi
     private ObservableScrollView mScrollView;
     private int mParallaxImageHeight;
     ButtonRectangle going;
-    ButtonRectangle notSure;
     Events events;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,9 +49,7 @@ public class EventDetail extends AppCompatActivity implements ObservableScrollVi
         mScrollView = (ObservableScrollView) findViewById(R.id.scroll);
         mScrollView.setScrollViewCallbacks(this);
         going = (ButtonRectangle) findViewById(R.id.goingButton);
-        notSure = (ButtonRectangle) findViewById(R.id.notSureButton);
         going.setOnClickListener(this);
-        notSure.setOnClickListener(this);
         mParallaxImageHeight = getResources().getDimensionPixelSize(
                 R.dimen.parallax_image_height);
     }
@@ -62,7 +59,7 @@ public class EventDetail extends AppCompatActivity implements ObservableScrollVi
     public void onScrollChanged(int scrollY, boolean firstScroll, boolean dragging) {
         ViewHelper.setTranslationY(mImageView, scrollY / 2);
 
-        int baseColor = getResources().getColor(R.color.colorPrimary);
+        int baseColor = getResources().getColor(R.color.primary_dark);
         float alpha = Math.min(1, (float) scrollY / mParallaxImageHeight);
         mToolbarView.setBackgroundColor(ScrollUtils.getColorWithAlpha(alpha, baseColor));
 

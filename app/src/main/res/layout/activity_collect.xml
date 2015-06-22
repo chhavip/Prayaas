@@ -1,0 +1,192 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    tools:context="com.example.chhavi.prayaas.CollectActivity"
+    android:orientation="vertical">
+    <android.support.v7.widget.Toolbar xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/accent"
+        android:id="@+id/tool"
+        android:minHeight="80dp"
+        android:layout_marginBottom="5dp"
+        android:paddingTop="50dp"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark"
+
+
+        >
+
+    </android.support.v7.widget.Toolbar>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:text="Our Centers"
+        android:textSize="25sp"
+
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginBottom="10dp"/>
+
+    <android.support.v7.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:layout_gravity="right"
+        android:background="@color/accent"
+        android:layout_marginLeft="30dp"
+        android:layout_marginBottom="5dp"
+
+        app:cardCornerRadius="2dp"
+        >
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="M T W TH F S SU"
+            android:layout_gravity="bottom"
+            android:textSize="12sp"
+            android:layout_margin="6dp"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right"
+            android:layout_marginRight="20dp"
+            android:layout_marginTop="5dp"
+            android:text="Address: Janaki Tech, Pulchowk"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right"
+            android:layout_marginRight="50dp"
+            android:layout_marginTop="35dp"
+            android:text="Phone Number: 9803157548"/>
+        <ImageView
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_marginRight="10dp"
+            android:src="@drawable/call"
+            android:layout_marginTop="26dp"
+            android:layout_gravity="right"/>
+    </android.support.v7.widget.CardView>
+    <android.support.v7.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:layout_gravity="right"
+        android:background="@color/accent"
+        android:layout_marginLeft="30dp"
+        android:layout_marginBottom="5dp"
+
+        app:cardCornerRadius="2dp"
+        >
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="M T W TH F S SU"
+            android:layout_gravity="bottom"
+            android:textSize="12sp"
+            android:layout_margin="6dp"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right"
+            android:layout_marginRight="20dp"
+            android:layout_marginTop="5dp"
+            android:text="Address: Janaki Tech, Pulchowk"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right"
+            android:layout_marginRight="50dp"
+            android:layout_marginTop="35dp"
+            android:text="Phone Number: 9803157548"/>
+        <ImageView
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_marginRight="10dp"
+            android:src="@drawable/call"
+            android:layout_marginTop="26dp"
+            android:layout_gravity="right"/>
+    </android.support.v7.widget.CardView>
+    <android.support.v7.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:layout_gravity="right"
+        android:background="@color/accent"
+        android:layout_marginBottom="5dp"
+
+        android:layout_marginLeft="30dp"
+        app:cardCornerRadius="2dp"
+        >
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="M T W TH F S SU"
+            android:layout_gravity="bottom"
+            android:textSize="12sp"
+            android:layout_margin="6dp"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right"
+            android:layout_marginRight="20dp"
+            android:layout_marginTop="5dp"
+            android:text="Address: Janaki Tech, Pulchowk"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right"
+            android:layout_marginRight="50dp"
+            android:layout_marginTop="35dp"
+            android:text="Phone Number: 9803157548"/>
+        <ImageView
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_marginRight="10dp"
+            android:src="@drawable/call"
+            android:layout_marginTop="26dp"
+            android:layout_gravity="right"/>
+    </android.support.v7.widget.CardView>
+    <android.support.v7.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:layout_gravity="right"
+        android:background="@color/accent"
+        android:layout_marginLeft="30dp"
+        app:cardCornerRadius="2dp"
+        >
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="M T W TH F S SU"
+            android:layout_gravity="bottom"
+            android:textSize="12sp"
+            android:layout_margin="6dp"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right"
+            android:layout_marginRight="20dp"
+            android:layout_marginTop="5dp"
+            android:text="Address: Janaki Tech, Pulchowk"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right"
+            android:layout_marginRight="50dp"
+            android:layout_marginTop="35dp"
+            android:text="Phone Number: 9803157548"/>
+        <ImageView
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_marginRight="10dp"
+            android:src="@drawable/call"
+            android:layout_marginTop="26dp"
+            android:layout_gravity="right"/>
+    </android.support.v7.widget.CardView>
+
+
+
+
+</LinearLayout>

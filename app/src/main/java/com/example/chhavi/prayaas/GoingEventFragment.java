@@ -78,7 +78,6 @@ public class GoingEventFragment extends Fragment {
         //if going table is empty, dont do anything
         //if going table is not empty, display data
         rv=(RecyclerView)v.findViewById(R.id.rv);
-        back = (RelativeLayout)v.findViewById(R.id.home_background);
         //  back.setBackgroundColor(white);
         LinearLayoutManager llm = new LinearLayoutManager(getActivity());
         rv.setLayoutManager(llm);

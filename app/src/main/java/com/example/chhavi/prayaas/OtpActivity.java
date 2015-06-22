@@ -73,9 +73,9 @@ public class OtpActivity extends ActionBarActivity implements View.OnClickListen
         Bundle b = i.getExtras();
         cv = (ContentValues) b.get("userdata");
         otpInput = (EditText) findViewById(R.id.otp);
-        referral =  cv.getAsString(PrayaasContract.USER_TABLE_NAME_COL).substring(0,2) + cv.getAsString(PrayaasContract.USER_TABLE_PHONE_COL).substring(7);
        Random random = new Random();
         showRandomInteger(1000, 9999, random);
+        referral =  cv.getAsString(PrayaasContract.USER_TABLE_NAME_COL).substring(0,3) + desiredOtp;
 
         phoneNum = (String) cv.get(PrayaasContract.USER_TABLE_PHONE_COL);
         phoneNumber.setText(phoneNum);
