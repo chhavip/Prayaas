@@ -90,6 +90,7 @@ public class EventDetail extends AppCompatActivity implements ObservableScrollVi
         Intent i = getIntent();
         Bundle b = i.getExtras();
         eventId = b.getInt("selectedEvent");
+        removeGoing = b.getBoolean("removeGoing");
 
         //
         // Events events = (Events) b.get("selectedEvent");
@@ -115,6 +116,8 @@ public class EventDetail extends AppCompatActivity implements ObservableScrollVi
         mScrollView = (ObservableScrollView) findViewById(R.id.scroll);
         mScrollView.setScrollViewCallbacks(this);
         going = (ButtonRectangle) findViewById(R.id.goingButton);
+        if(removeGoing)
+            going.setVisibility(View.GONE);
        // notSure = (ButtonRectangle) findViewById(R.id.notSureButton);
 
         mParallaxImageHeight = getResources().getDimensionPixelSize(
