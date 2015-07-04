@@ -56,8 +56,9 @@
         <ImageView
             android:layout_width="200dp"
             android:layout_height="100dp"
-            android:src="@drawable/sparrowfinal"
             android:layout_gravity="end"/>
+            <!--android:src="@drawable/sparrowfinal"-->
+
         <TextView
             android:layout_width="160dp"
             android:layout_height="100dp"

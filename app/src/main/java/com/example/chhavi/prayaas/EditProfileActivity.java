@@ -29,6 +29,7 @@ import app.AppConfig;
 import app.AppController;
 import helper.SQLiteHandler;
 import helper.SessionManager;
+import models.UserDetailResponse;
 
 
 public class EditProfileActivity extends ActionBarActivity implements View.OnClickListener {
@@ -42,6 +43,7 @@ public class EditProfileActivity extends ActionBarActivity implements View.OnCli
     String Newname;
     String newEmail;
     String newPassword;
+    UserDetailResponse userEditDetailResponse;
     String url;
     private SQLiteHandler db;
 
@@ -51,6 +53,8 @@ public class EditProfileActivity extends ActionBarActivity implements View.OnCli
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_edit_profile);
         db = new SQLiteHandler(this);
+        userEditDetailResponse = ProfileFragment.userDetailResponse;
+
       //  View v = localInflater.inflate(R.layout.fragment_profile, container, false);
         SQLiteHandler handler = new SQLiteHandler(this);
         userInfo = handler.getUserDetails();

@@ -114,14 +114,14 @@
             <TextView
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:layout_weight="1"
+                android:layout_weight="2"
                 android:text="Email: "
                 android:textSize="14sp"
                 android:textColor="@color/secondary_text"/>
             <TextView
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:layout_weight="9"
+                android:layout_weight="8"
                 android:id="@+id/profileFragmentEmail"
                 android:text="shikhark211@gmail.com"
                 android:paddingLeft="10dp"
@@ -156,6 +156,7 @@
                 android:paddingLeft="10dp"
                 android:textSize="14sp"
                 android:letterSpacing="0.1"
+                android:id="@+id/phoneNumber"
 
                 android:textColor="@color/primary_text"/>
         </LinearLayout>
@@ -197,7 +198,7 @@
 
 
 
-        <com.gc.materialdesign.views.ButtonRectangle
+<!--        <com.gc.materialdesign.views.ButtonRectangle
             android:id="@+id/LogOut"
             android:layout_width="150dp"
             android:gravity="center"
@@ -207,7 +208,7 @@
             android:layout_marginTop="20dp"
             android:layout_marginBottom="20dp"
             android:background="@color/accent"
-            android:text="Log Out" />
+            android:text="Log Out" />-->
 
     </LinearLayout>
     <FrameLayout
@@ -218,14 +219,14 @@
         android:layout_marginTop="10dp"
         >
 
-        <com.gc.materialdesign.views.ButtonRectangle
+<!--        <com.gc.materialdesign.views.ButtonRectangle
             android:layout_width="wrap_content"
             android:layout_height="50dp"
             android:text="Edit"
             android:id="@+id/fab"
             android:background="@color/accent"
             android:layout_centerVertical="true"
-            android:layout_centerHorizontal="true" />
+            android:layout_centerHorizontal="true" />-->
 
     </FrameLayout>
 </FrameLayout>

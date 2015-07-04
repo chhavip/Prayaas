@@ -47,6 +47,7 @@ public class OtpActivity extends ActionBarActivity implements View.OnClickListen
     String referral;
     private ProgressDialog pDialog;
     ContentValues cv;
+    boolean flag = false;
     SharedPreferences sp;
     private SessionManager session;
     private SQLiteHandler db;
@@ -117,30 +118,32 @@ public class OtpActivity extends ActionBarActivity implements View.OnClickListen
 
     @Override
     public void onClick(View v) {
-        int otpInputString = Integer.valueOf(otpInput.getText().toString());
-        if(otpInputString == desiredOtp)  {
-       //     PrayaasSQLiteOpenHelper helper = new PrayaasSQLiteOpenHelper(this);
-        //    SQLiteDatabase db = helper.getWritableDatabase();
-         //   db.insert(PrayaasContract.USER_TABLE, null, cv);
-         //   savePreferences(cv);
+        if(!flag) {
+            int otpInputString = Integer.valueOf(otpInput.getText().toString());
+            if (otpInputString == desiredOtp) {
+                //     PrayaasSQLiteOpenHelper helper = new PrayaasSQLiteOpenHelper(this);
+                //    SQLiteDatabase db = helper.getWritableDatabase();
+                //   db.insert(PrayaasContract.USER_TABLE, null, cv);
+                //   savePreferences(cv);
 //            Intent i = new Intent();
 //            i.setClass(this, NavigationDrawer.class);
 //            i.putExtra("userdata", cv);
 //            startActivityr(i);
 
-    String name = cv.getAsString(PrayaasContract.USER_TABLE_NAME_COL);
-            String email = cv.getAsString(PrayaasContract.USER_TABLE_USERNAME_COL);
-            String password = cv.getAsString(PrayaasContract.USER_TABLE_PASSWORD_COL);
-            String phone = cv.getAsString(PrayaasContract.USER_TABLE_PHONE_COL);
-            String age = cv.getAsString(PrayaasContract.USER_TABLE_AGE_COL);
-            String gender = cv.getAsString(PrayaasContract.USER_TABLE_GENDER_COL);
+                String name = cv.getAsString(PrayaasContract.USER_TABLE_NAME_COL);
+                String email = cv.getAsString(PrayaasContract.USER_TABLE_USERNAME_COL);
+                String password = cv.getAsString(PrayaasContract.USER_TABLE_PASSWORD_COL);
+                String phone = cv.getAsString(PrayaasContract.USER_TABLE_PHONE_COL);
+                String age = cv.getAsString(PrayaasContract.USER_TABLE_AGE_COL);
+                String gender = cv.getAsString(PrayaasContract.USER_TABLE_GENDER_COL);
 
-            Log.e("data", email + password + phone + age + gender);
+                Log.e("data", email + password + phone + age + gender);
 
-            registerUser(name, email, phone, password, referral, age, gender);
+                registerUser(name, email, phone, password, referral, age, gender);
+            }
+            flag = true;
+
         }
-
-
     }
 
     public void sendOtpRequest() {

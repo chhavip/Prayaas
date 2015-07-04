@@ -50,6 +50,15 @@ public class SignUpActivityNet extends Activity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
+        session = new SessionManager(getApplicationContext());
+
+        if (session.isLoggedIn()) {
+            // User is already logged in. Take him to main activity
+            Intent intent = new Intent(SignUpActivityNet.this,
+                    NavigationDrawer.class);
+            startActivity(intent);
+            finish();
+        }
 
         inputFullName = (EditText) findViewById(R.id.name);
         inputEmail = (EditText) findViewById(R.id.email);
@@ -65,19 +74,13 @@ public class SignUpActivityNet extends Activity {
         pDialog.setCancelable(false);
 
         // Session manager
-        session = new SessionManager(getApplicationContext());
+
 
         // SQLite database handler
     //    db = new SQLiteHandler(getApplicationContext());
 
         // Check if user is already logged in or not
-        if (session.isLoggedIn()) {
-            // User is already logged in. Take him to main activity
-            Intent intent = new Intent(SignUpActivityNet.this,
-                    NavigationDrawer.class);
-            startActivity(intent);
-            finish();
-        }
+
 
         // Register Button Click event
         btnRegister.setOnClickListener(new View.OnClickListener() {

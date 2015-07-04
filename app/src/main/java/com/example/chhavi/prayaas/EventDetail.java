@@ -11,6 +11,7 @@ import android.widget.ArrayAdapter;
 import android.support.v7.widget.Toolbar;
 import android.widget.ImageView;
 
+import com.android.volley.Cache;
 import com.gc.materialdesign.views.ButtonRectangle;
 import com.github.ksoichiro.android.observablescrollview.ObservableListView;
 import com.github.ksoichiro.android.observablescrollview.ObservableScrollView;
@@ -252,6 +253,7 @@ public class EventDetail extends AppCompatActivity implements ObservableScrollVi
     }
 
     public void fetchEvent(){
+
 
         StringRequest postRequest = new StringRequest(Request.Method.POST, fetcheventURl,
                 new Response.Listener<String>() {
