@@ -11,7 +11,7 @@ import android.view.ViewGroup;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class AboutAppFragment extends Fragment {
+public class AboutAppFragment extends android.support.v4.app.Fragment {
 
 
     public AboutAppFragment() {

@@ -17,6 +17,8 @@
     <string name="welcome">Welcome</string>
     <string name="btn_logout">LOGOUT</string>
     <string name="name">Fullname</string>
+    <string name="prayaasDonate">Donate in Prayaas\'es fund so that we can keep the good work going. This money will be used in the betterment of Prayaas as we don\'t have other sources of funding. We would also keep you updated on our facebook page so that you can keep a track about where your money is going and how is it helping people. We believe that people can not only watch movies and go for hangouts but they can even volunteer.</string>
+
 <string name="lipsum">Lorem ipsum dolor sit amet, ut duis lorem provident sed felis blandit, c
     ondimentum donec lectus ipsum et mauris, morbi porttitor interdum feugiat nulla donec soda
     les, vestibulum nisl primis a molestie vestibulum quam, sapien mauris metus risus suspendiss
@@ -57,7 +59,7 @@ Prayaas is an app-based platform designed to connect volunteers to the NGOs and 
 
 <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="title_activity_edit_profile">EditProfileActivity</string>
+    <string name="title_activity_edit_profile">Edit Profile</string>
     <string name="title_activity_collect">Collect From Us!</string>
 
 </resources>

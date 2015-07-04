@@ -58,13 +58,13 @@
                 <EditText
                     android:layout_width="180dp"
                     android:layout_height="0dp"
-                    android:layout_weight="1"
+                    android:layout_weight="2"
                     android:inputType="textEmailAddress"
-                    android:id="@+id/edit_email"
+                    android:id="@+id/edit_age"
                     android:textColor="@color/primary_text"
                     android:gravity="center"
-                    android:hint="EMAIL"
-                    android:text="shikhark211@gmail.com"
+                    android:hint="AGE"
+                    android:text="20"
                     android:layout_gravity="center"
                     android:layout_marginTop="38dp"
                     android:layout_marginBottom="6dp"
@@ -73,11 +73,11 @@
                 <EditText
                     android:layout_width="180dp"
                     android:layout_height="0dp"
-                    android:layout_weight="1"
-                    android:hint="PHONE"
-                    android:id="@+id/editPhone"
+                    android:layout_weight="2"
+                    android:hint="GENDER"
+                    android:id="@+id/edit_Gender"
                     android:textColor="@color/primary_text"
-                    android:layout_marginBottom="38dp"
+                    android:layout_marginBottom="20dp"
                     android:layout_marginTop="6dp"
 
                     android:letterSpacing="0.1"
@@ -114,14 +114,15 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:text="Age: "
+                android:text="Email: "
                 android:textSize="14sp"
                 android:textColor="@color/secondary_text"/>
-            <TextView
+            <EditText
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="9"
-                android:text="20 "
+                android:id="@+id/edit_email"
+                android:text="shikhark211@gmail.com"
                 android:paddingLeft="10dp"
                 android:textSize="14sp"
                 android:textColor="@color/primary_text"/>
@@ -143,25 +144,58 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="2"
-                android:text="Gender: "
+                android:text="Phone: "
                 android:textSize="14sp"
                 android:textColor="@color/secondary_text"/>
             <TextView
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="10"
-                android:text="Male "
+                android:text="9810357548 "
+                android:paddingLeft="10dp"
+                android:textSize="14sp"
+                android:letterSpacing="0.1"
+
+                android:textColor="@color/primary_text"/>
+        </LinearLayout>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:background="@color/grey_200"
+            android:layout_marginRight="20dp"
+            android:layout_marginStart="46dp"
+            android:id="@+id/view3" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="0.8"
+            android:layout_marginTop="20dp"
+            android:layout_marginStart="5dp">
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="2"
+                android:text="Referral : "
+                android:textSize="14sp"
+                android:textColor="@color/secondary_text"/>
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="9"
+                android:id="@+id/profileFragmentReferral"
+                android:text="Referral"
                 android:paddingLeft="10dp"
                 android:textSize="14sp"
                 android:textColor="@color/primary_text"/>
         </LinearLayout>
+
         <View
             android:layout_width="match_parent"
             android:layout_height="2dp"
             android:background="@color/grey_300"
             android:layout_marginRight="20dp"
             android:layout_marginStart="46dp"
-            android:id="@+id/view3" />
+            />
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"

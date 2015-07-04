@@ -12,6 +12,8 @@ import com.google.gson.JsonSyntaxException;
 import java.io.UnsupportedEncodingException;
 import java.util.Map;
 
+import models.EventResponse;
+
 /**
  * Created by chhavi on 10/6/15.
  */
@@ -23,24 +25,27 @@ public class GsonRequest<T> extends Request<T> {
 
     /**
      * Make a GET request and return a parsed object from JSON.
-     *
-     * @param url URL of the request to make
+     *  @param url URL of the request to make
      * @param clazz Relevant class object, for Gson's reflection
-     * @param headers Map of request headers
+   //  * @param headers Map of request headers
+     * @param listener
+     * @param errorListener
      */
-    public GsonRequest(String url, Class<T> clazz, Map<String, String> headers,
-                       Response.Listener<T> listener, Response.ErrorListener errorListener) {
-        super(Method.GET, url, errorListener);
-        this.clazz = clazz;
-        this.headers = headers;
-        this.listener = listener;
-    }
+//    public GsonRequest(String url, String clazz, Class<EventResponse> headers,
+//                       Response.Listener<EventResponse> listener, Response.Listener errorListener) {
+//        super(Method.GET, url, errorListener);
+//        this.clazz = clazz;
+//        this.headers = headers;
+//        this.listener = listener;
+//    }
     public GsonRequest(int method, String url, Class<T> clazz, Response.Listener<T> listener, Response.ErrorListener errorListener) {
         super(method, url, errorListener);
         this.clazz = clazz;
         this.listener = listener;
         gson = new Gson();
     }
+
+
 
 
     @Override

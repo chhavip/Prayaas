@@ -1,10 +1,12 @@
 package helper;
 
+
+
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.app.FragmentStatePagerAdapter;
+
 
 import com.example.chhavi.prayaas.AllEventsFragment;
 import com.example.chhavi.prayaas.MyEventsFragment;
@@ -17,6 +19,8 @@ public class PrayaasFragmentPagerAdapter extends FragmentStatePagerAdapter {
     public PrayaasFragmentPagerAdapter(FragmentManager fm) {
         super(fm);
     }
+
+
 
     @Override
     public Fragment getItem(int position) {
@@ -40,6 +44,18 @@ public class PrayaasFragmentPagerAdapter extends FragmentStatePagerAdapter {
         return 2;
     }
     public CharSequence getPageTitle(int position) {
-        return "OBJECT " + (position + 1);
+        switch (position){
+
+            case 0:
+                return "All Events";
+               // break;
+            case 1:
+                return "My Events";
+            //     break;
+        }
+
+        return "Events";
+
+
     }
 }

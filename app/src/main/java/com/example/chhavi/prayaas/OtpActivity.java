@@ -36,6 +36,7 @@ import app.AppConfig;
 import app.AppController;
 import helper.OtpSenderAsyncTask;
 import helper.SQLiteHandler;
+import helper.SessionManager;
 import models.OtpContent;
 
 
@@ -47,6 +48,7 @@ public class OtpActivity extends ActionBarActivity implements View.OnClickListen
     private ProgressDialog pDialog;
     ContentValues cv;
     SharedPreferences sp;
+    private SessionManager session;
     private SQLiteHandler db;
     String phoneNum;
     String message;
@@ -73,9 +75,9 @@ public class OtpActivity extends ActionBarActivity implements View.OnClickListen
         Bundle b = i.getExtras();
         cv = (ContentValues) b.get("userdata");
         otpInput = (EditText) findViewById(R.id.otp);
+        referral =  cv.getAsString(PrayaasContract.USER_TABLE_NAME_COL).substring(0,2) + cv.getAsString(PrayaasContract.USER_TABLE_PHONE_COL).substring(7);
        Random random = new Random();
         showRandomInteger(1000, 9999, random);
-        referral =  cv.getAsString(PrayaasContract.USER_TABLE_NAME_COL).substring(0,3) + desiredOtp;
 
         phoneNum = (String) cv.get(PrayaasContract.USER_TABLE_PHONE_COL);
         phoneNumber.setText(phoneNum);
@@ -130,8 +132,12 @@ public class OtpActivity extends ActionBarActivity implements View.OnClickListen
             String email = cv.getAsString(PrayaasContract.USER_TABLE_USERNAME_COL);
             String password = cv.getAsString(PrayaasContract.USER_TABLE_PASSWORD_COL);
             String phone = cv.getAsString(PrayaasContract.USER_TABLE_PHONE_COL);
+            String age = cv.getAsString(PrayaasContract.USER_TABLE_AGE_COL);
+            String gender = cv.getAsString(PrayaasContract.USER_TABLE_GENDER_COL);
 
-            registerUser(name,email,password,referral);
+            Log.e("data", email + password + phone + age + gender);
+
+            registerUser(name, email, phone, password, referral, age, gender);
         }
 
 
@@ -139,6 +145,7 @@ public class OtpActivity extends ActionBarActivity implements View.OnClickListen
 
     public void sendOtpRequest() {
 
+        Toast.makeText(this, "A One-Time Password has been sent to your device, Please enter it in the space above" , Toast.LENGTH_LONG).show();
         OtpSenderAsyncTask task = new OtpSenderAsyncTask(this);
         OtpContent otpContent = new OtpContent(message, phoneNum);
         task.execute(otpContent);
@@ -156,8 +163,8 @@ public class OtpActivity extends ActionBarActivity implements View.OnClickListen
         editor.commit();
     }
 
-    private void registerUser(final String name, final String email,
-                              final String password, final String referral) {
+    private void registerUser(final String name, final String email,final String phone,
+                              final String password, final String referral,final String age, final String gender) {
         // Tag used to cancel the request
         String tag_string_req = "req_register";
         //TODO send referral code and phone number as well.
@@ -179,8 +186,10 @@ public class OtpActivity extends ActionBarActivity implements View.OnClickListen
                     if (!error) {
                         // User successfully stored in MySQL
                         // Now store the user in sqlite
+                        session = new SessionManager(getApplicationContext());
+                        session.setLogin(true);
                         String uid = jObj.getString("uid");
-
+                        Log.e("user_id",uid);
                         JSONObject user = jObj.getJSONObject("user");
                         String name = user.getString("name");
                         String email = user.getString("email");
@@ -189,6 +198,7 @@ public class OtpActivity extends ActionBarActivity implements View.OnClickListen
 
                         // Inserting row in users table
                         db.addUser(name, email, uid ,created_at);
+
 
                         // Launch login activity
                         Intent intent = new Intent(
@@ -227,7 +237,13 @@ public class OtpActivity extends ActionBarActivity implements View.OnClickListen
                 params.put("tag", "register");
                 params.put("name", name);
                 params.put("email", email);
+                params.put("number", phone);
                 params.put("password", password);
+                params.put("referral", referral);
+                params.put("age", age);
+                params.put("gender", gender);
+
+
 
                 return params;
             }

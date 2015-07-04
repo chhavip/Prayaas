@@ -19,7 +19,7 @@ import java.util.List;
 /**
  * Created by chhavi on 3/6/15.
  */
-public class InviteFriends  extends Fragment {
+public class InviteFriends  extends android.support.v4.app.Fragment {
     ButtonRectangle whatsappShare;
     ButtonRectangle facebookShare;
     ButtonRectangle emailShare;

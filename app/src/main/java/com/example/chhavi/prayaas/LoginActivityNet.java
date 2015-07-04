@@ -74,7 +74,7 @@ public class LoginActivityNet extends Activity {
         btnLogin.setOnClickListener(new View.OnClickListener() {
 
             public void onClick(View view) {
-          /*      String email = inputEmail.getText().toString();
+                String email = inputEmail.getText().toString();
                 String password = inputPassword.getText().toString();
 
                 // Check for empty data in the form
@@ -86,11 +86,11 @@ public class LoginActivityNet extends Activity {
                     Toast.makeText(getApplicationContext(),
                             "Please enter the credentials!", Toast.LENGTH_LONG)
                             .show();
-                }*/
-                Intent intent = new Intent(LoginActivityNet.this,
+                }
+            /*    Intent intent = new Intent(LoginActivityNet.this,
                         NavigationDrawer.class);
                 startActivity(intent);
-                finish();
+                finish();*/
 
             }
 

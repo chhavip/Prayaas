@@ -24,7 +24,6 @@ repositories {
 }
 
 dependencies {
-    compile 'it.neokree:MaterialTabs:0.11'
     compile fileTree(dir: 'libs', include: ['*.jar'])
     compile 'com.android.support:appcompat-v7:22.2.0'
     compile 'it.neokree:MaterialNavigationDrawer:1.3.3'
@@ -37,6 +36,7 @@ dependencies {
     compile 'com.nineoldandroids:library:2.4.0'
     compile 'com.ms-square:expandableTextView:0.1.3'
     compile 'com.melnykov:floatingactionbutton:1.3.0'
+    compile 'it.neokree:MaterialTabs:0.11'
 
 }
 

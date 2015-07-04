@@ -16,26 +16,18 @@
         cardview:contentPadding = "20dp"
         android:layout_marginTop="80dp"
         android:id="@+id/card">
-<LinearLayout
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent"
-   >
-    >
-        <ImageView
-            android:layout_marginTop="5dp"
-            android:layout_width="match_parent"
-            android:layout_height="150dp"
-            android:id="@+id/imageView"
-            style="s"
-            android:src="@drawable/nepalim" />
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Organisation Description"
-            android:layout_gravity = "center"
-            android:id="@+id/textView3"
-            android:textColor="@color/black"/>
-</LinearLayout>
+        <LinearLayout
+            android:orientation="vertical" android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            >
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/prayaasDonate"
+                android:layout_gravity = "center"
+                android:id="@+id/textView3"
+                android:textColor="@color/black"/>
+        </LinearLayout>
     </android.support.v7.widget.CardView>
 
 

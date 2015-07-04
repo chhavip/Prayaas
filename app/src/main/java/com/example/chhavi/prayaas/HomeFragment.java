@@ -68,6 +68,8 @@ public class HomeFragment extends android.support.v4.app.Fragment implements Mat
     ViewPager pager;
     MaterialTabHost tabHost;
 
+
+
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -107,6 +109,8 @@ public class HomeFragment extends android.support.v4.app.Fragment implements Mat
 
         return view;
     }
+
+
 
     @Override
     public void onTabSelected(MaterialTab tab) {

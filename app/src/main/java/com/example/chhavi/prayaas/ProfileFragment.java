@@ -17,6 +17,7 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -24,6 +25,9 @@ import android.widget.Toast;
 import com.gc.materialdesign.views.ButtonRectangle;
 import com.melnykov.fab.FloatingActionButton;
 
+import java.util.HashMap;
+
+import helper.SQLiteHandler;
 import helper.SessionManager;
 
 
@@ -32,12 +36,12 @@ import helper.SessionManager;
  * Use the {@link ProfileFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class ProfileFragment extends Fragment implements View.OnClickListener {
+public class ProfileFragment extends android.support.v4.app.Fragment implements View.OnClickListener {
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
-
+    HashMap<String,String> userInfo;
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
@@ -76,7 +80,7 @@ public class ProfileFragment extends Fragment implements View.OnClickListener {
     }
 
     ButtonRectangle logout;
-    FloatingActionButton fab;
+    ButtonRectangle fab;
     SharedPreferences sp;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -91,17 +95,20 @@ public class ProfileFragment extends Fragment implements View.OnClickListener {
         // inflate the layout using the cloned inflater, not default inflater
 
         View v = localInflater.inflate(R.layout.fragment_profile, container, false);
+        SQLiteHandler handler = new SQLiteHandler(getActivity());
+        userInfo = handler.getUserDetails();
         sp = getActivity().getSharedPreferences("Prayaas", Context.MODE_PRIVATE);
         TextView name = (TextView) v.findViewById(R.id.profileFragmentName);
-        TextView phone = (TextView) v.findViewById(R.id.profileFragmentPhone);
+       // TextView phone = (TextView) v.findViewById(R.id.profileFragmentPhone);
         TextView email = (TextView) v.findViewById(R.id.profileFragmentEmail);
-        name.setText(sp.getString(PrayaasContract.USER_TABLE_NAME_COL, null));
-        phone.setText(sp.getString(PrayaasContract.USER_TABLE_PHONE_COL, null));
+       // name.setText(sp.getString(PrayaasContract.USER_TABLE_NAME_COL, null));
+        name.setText(userInfo.get("name"));
+     //   phone.setText(userInfo.get(""));
         logout = (ButtonRectangle) v.findViewById(R.id.LogOut);
         logout.setOnClickListener(this);
-        fab = (FloatingActionButton) v.findViewById(R.id.fab);
+        fab = (ButtonRectangle) v.findViewById(R.id.fab);
         fab.setOnClickListener(this);
-        email.setText(sp.getString(PrayaasContract.USER_TABLE_USERNAME_COL, null));
+        email.setText(userInfo.get("email"));
         return v;
 
     }
@@ -113,7 +120,7 @@ public class ProfileFragment extends Fragment implements View.OnClickListener {
     public void onClick(View v) {
         if(v.getId() == R.id.fab)   {
             //TODO edit profile
-            AlertDialog.Builder b = new AlertDialog.Builder(getActivity());
+           /* AlertDialog.Builder b = new AlertDialog.Builder(getActivity());
             b.setTitle("Enter Password");
 
             View v1 = getActivity().getLayoutInflater().inflate(R.layout.confirm_password_dialog, null);
@@ -122,11 +129,11 @@ public class ProfileFragment extends Fragment implements View.OnClickListener {
             b.setPositiveButton("Confirm", new DialogInterface.OnClickListener() {
                 @Override
                 public void onClick(DialogInterface dialog, int which) {
-                    if(editText.getText().toString().equals(sp.getString(PrayaasContract.USER_TABLE_PASSWORD_COL, null)))    {
+                    if(editText.getText().toString().equals(sp.getString(PrayaasContract.USER_TABLE_PASSWORD_COL, null)))    {*/
                         Intent i = new Intent();
                         i.setClass(getActivity(), EditProfileActivity.class);
                         startActivity(i);
-                    }
+                 /*   }
                     else
                     {
                         Toast.makeText(getActivity(), sp.getString(PrayaasContract.USER_TABLE_PASSWORD_COL, null), Toast.LENGTH_SHORT).show();
@@ -139,7 +146,7 @@ public class ProfileFragment extends Fragment implements View.OnClickListener {
                     dialog.cancel();
                 }
             });
-            b.create().show();
+            b.create().show();*/
         }
         else {
             SessionManager sessionManager = new SessionManager(getActivity());
@@ -147,6 +154,8 @@ public class ProfileFragment extends Fragment implements View.OnClickListener {
             Intent i = new Intent();
             i.setClass(getActivity(), LoginActivityNet.class);
             startActivity(i);
+            getActivity().finish();
+
         }
     }
 }

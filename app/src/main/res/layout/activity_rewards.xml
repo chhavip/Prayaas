@@ -37,9 +37,9 @@
         android:layout_toLeftOf="@+id/incentive_value"
         android:layout_toStartOf="@+id/incentive_value" />
     <TextView
-        android:layout_width="wrap_content"
+        android:layout_width="220dp"
         android:layout_height="wrap_content"
-        android:text="500"
+        android:text="0"
         android:textStyle="bold"
         android:textSize="85sp"
         android:id="@+id/incentive_value"
@@ -60,7 +60,7 @@
         android:layout_toRightOf="@+id/textWallet"
         android:layout_toEndOf="@+id/textWallet" />
     <com.gc.materialdesign.views.ButtonRectangle
-        android:layout_width="wrap_content"
+        android:layout_width="100dp"
         android:layout_height="50dp"
         android:text="COLLECT"
         android:background="@color/accent"

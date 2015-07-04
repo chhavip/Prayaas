@@ -28,15 +28,14 @@
         android:layout_width="0dp"
         android:layout_height="match_parent"
         android:layout_weight="5"
-        android:layout_marginStart="10dp"
         android:orientation="vertical">
         <TextView
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="1"
+            android:layout_weight="1.3"
+            android:layout_marginLeft="10dp"
             android:textAppearance="?android:attr/textAppearanceMedium"
             android:text="Event Name"
-
             android:id="@+id/event_name"
             android:textColor="@color/black" />
         <!-- TODO: Update blank fragment layout -->
@@ -52,13 +51,14 @@
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:text="15th June"
+                android:layout_marginLeft="20dp"
                 android:id="@+id/event_date"
                 android:textColor="@color/black"
                 android:textSize="12sp"
 
                 android:gravity="center_vertical" />
         </LinearLayout>
-        <LinearLayout
+     <!--   <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1"
@@ -90,20 +90,24 @@
                 android:id="@+id/event_time"
                 android:textColor="@color/black"
                 android:gravity="center_vertical" />
-        </LinearLayout>
+        </LinearLayout>-->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"></LinearLayout>
 
     </LinearLayout>
     </LinearLayout>
     <FrameLayout
-        android:layout_width="100dp"
+        android:layout_width="match_parent"
         android:layout_height="30dp"
-        android:layout_gravity="end">
+        android:layout_gravity="bottom">
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="right"
             android:text="Cancel"
-            android:textColor="@color/blue_400"
+            android:textColor="@color/accent"
             android:background="@color/white"
             android:id="@+id/cancelButton"
 

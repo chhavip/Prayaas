@@ -40,6 +40,8 @@ public class SignUpActivityNet extends Activity {
     private EditText inputEmail;
     private EditText inputNumber;
     private EditText inputPassword;
+    private EditText age;
+    private EditText gender;
     private ProgressDialog pDialog;
     private SessionManager session;
     private SQLiteHandler db;
@@ -53,6 +55,8 @@ public class SignUpActivityNet extends Activity {
         inputEmail = (EditText) findViewById(R.id.email);
         inputPassword = (EditText) findViewById(R.id.password);
         inputNumber =(EditText)findViewById(R.id.phone_numner);
+        age =(EditText)findViewById(R.id.age);
+        gender =(EditText)findViewById(R.id.gender);
         btnRegister = (Button) findViewById(R.id.btnRegister);
         btnLinkToLogin = (Button) findViewById(R.id.btnLinkToLoginScreen);
 
@@ -89,8 +93,8 @@ public class SignUpActivityNet extends Activity {
                     cv.put(PrayaasContract.USER_TABLE_USERNAME_COL,email);
                     cv.put(PrayaasContract.USER_TABLE_PASSWORD_COL, password);
                     cv.put(PrayaasContract.USER_TABLE_PHONE_COL, phoneNumber);
-                  //  cv.put(PrayaasContract.USER_TABLE_AGE_COL, Integer.valueOf(age.getText().toString()));
-          //          cv.put(PrayaasContract.USER_TABLE_GENDER_COL, gender);
+                    cv.put(PrayaasContract.USER_TABLE_AGE_COL, age.getText().toString());
+                    cv.put(PrayaasContract.USER_TABLE_GENDER_COL, gender.getText().toString());
           //          if(referral.getText().toString()!=null)
           //              cv.put(PrayaasContract.USER_TABLE_REFERRAL_COL, referral.getText().toString());
 

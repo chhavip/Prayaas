@@ -7,11 +7,11 @@
     android:id="@+id/rell"
     tools:context="com.example.chhavi.prayaas.SplashScreenActivity"
     android:background="@drawable/mounteverest">
-<FrameLayout
-    android:layout_width="320dp"
-    android:layout_height="100dp"
-    android:layout_centerInParent="true"
-    android:background="@drawable/prayaaslogo"></FrameLayout>
+    <FrameLayout
+        android:layout_width="320dp"
+        android:layout_height="100dp"
+        android:layout_centerInParent="true"
+        android:background="@drawable/prayaaslogo"></FrameLayout>
 
 
 </RelativeLayout>

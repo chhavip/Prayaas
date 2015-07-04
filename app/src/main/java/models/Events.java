@@ -9,6 +9,7 @@ public class Events implements Serializable {
 
     public String name;
     public String date;
+    public int id;
     public String Venue;
     public int imageResource;
     public String description;
@@ -25,6 +26,17 @@ public class Events implements Serializable {
         this.date = d;
         this.Venue = v;
         this.imageResource = ir;
+
+
+    }
+
+    public Events(String n, String d, String v, int ir,int id){
+        this.name = n;
+        this.date = d;
+        this.Venue = v;
+        this.imageResource = ir;
+
+        this.id = id;
 
 
     }

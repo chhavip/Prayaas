@@ -18,7 +18,7 @@ public class PrayaasContract implements BaseColumns {
     public static final String USER_TABLE_PHONE_COL="Phone";
     public static final String USER_TABLE_GENDER_COL="Gender";
     public static final String USER_TABLE_REFERRAL_COL="Referral";
-    public static final String USER_TABLE_WALLET="UserWallet";
+    public static final String USER_TABLE_WALLET_ID="UserWalletId";
     public static final String USER_TABLE_DONATED="UserDonated";
 
     public static final String EVENT_TABLE="events";

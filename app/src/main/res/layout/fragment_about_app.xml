@@ -51,14 +51,23 @@
     </FrameLayout>
     <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="200dp"
-        android:background="@color/blue_grey_600"
-        android:alpha="0.8"
-        android:id="@+id/sponsors"
+        android:layout_height="wrap_content"
         >
+        <ImageView
+            android:layout_width="200dp"
+            android:layout_height="100dp"
+            android:src="@drawable/sparrowfinal"
+            android:layout_gravity="end"/>
+        <TextView
+            android:layout_width="160dp"
+            android:layout_height="100dp"
+            android:textColor="@color/white"
+            android:text="SMS PARTNER :"
+            android:textSize="20sp"
+            android:layout_marginLeft="20dp"
+            android:gravity="center_vertical"/>
+</FrameLayout>
 
-
-    </FrameLayout>
 
 
     <!-- TODO: Update blank fragment layout -->

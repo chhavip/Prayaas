@@ -101,7 +101,7 @@ public class GoingEventFragment extends Fragment {
 
     private void initializeAdapter(){
         EventCardAdapter adapter;
-        adapter = new EventCardAdapter(events, R.layout.fragment_going_event);
+        adapter = new EventCardAdapter(events, R.layout.fragment_going_event,getActivity());
 
 
         adapter.SetOnItemClickListener(new EventCardAdapter.OnItemClickListener() {

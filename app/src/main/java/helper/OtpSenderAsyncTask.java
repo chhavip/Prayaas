@@ -164,7 +164,7 @@ public class OtpSenderAsyncTask extends AsyncTask<OtpContent, Void, Boolean> {
     @Override
     protected void onPostExecute(Boolean aBoolean) {
         if(aBoolean)    {
-Log.i("Executed" , " ");
+            Log.i("Executed" , " ");
         }
     }
 }

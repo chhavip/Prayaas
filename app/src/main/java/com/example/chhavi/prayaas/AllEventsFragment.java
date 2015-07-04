@@ -24,6 +24,7 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
+import app.AppConfig;
 import app.AppController;
 import helper.EventCardAdapter;
 import helper.GsonRequest;
@@ -33,7 +34,7 @@ import models.Events;
 
 /**
  * A simple {@link Fragment} subclass.
- * Use the {@link AllEventsFragment#newInstance} factory method to
+ * Use the {@link AllEventsFragment# new Instance} factory method to
  * create an instance of this fragment.
  */
 public class AllEventsFragment extends android.support.v4.app.Fragment {
@@ -45,38 +46,38 @@ public class AllEventsFragment extends android.support.v4.app.Fragment {
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
-
+    List<EventResponse.EventModel> eventsall;
 
     /**
      * Use this factory method to create a new instance of
      * this fragment using the provided parameters.
      *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
+   //  * @param param1 Parameter 1.
+   //  * @param param2 Parameter 2.
      * @return A new instance of fragment AllEventsFragment.
      */
     // TODO: Rename and change types and number of parameters
-    public static AllEventsFragment newInstance(String param1, String param2) {
+ /*   public static AllEventsFragment newInstance(String param1, String param2) {
         AllEventsFragment fragment = new AllEventsFragment();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
         fragment.setArguments(args);
         return fragment;
-    }
-
+    }*/
+/*
     public AllEventsFragment() {
         // Required empty public constructor
-    }
+    }*/
 
-    @Override
+  /*  @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         if (getArguments() != null) {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
-    }
+    }*/
     private List<Events> events;
     private RecyclerView rv;
     String url;
@@ -86,7 +87,7 @@ public class AllEventsFragment extends android.support.v4.app.Fragment {
         // Inflate the layout for this fragment
         View v = inflater.inflate(R.layout.fragment_all_events, container, false);
         events = new ArrayList<>();
-        url = "http://192.168.0.102/android_login_api/fetch_events.php";
+        url = AppConfig.BASE_URL + "fetch_events.php";
         RequestQueue queue = AppController.getInstance().getRequestQueue();
 
         GsonRequest<EventResponse> myreq = new GsonRequest<EventResponse>(Request.Method.GET,url,EventResponse.class, createMyReqSuccessListener(),
@@ -99,8 +100,7 @@ public class AllEventsFragment extends android.support.v4.app.Fragment {
         rv.setLayoutManager(llm);
         rv.setHasFixedSize(true);
         rv.setItemAnimator(new DefaultItemAnimator());
-        initializeData();
-        initializeAdapter();
+
         return v;
 
     }
@@ -110,9 +110,11 @@ public class AllEventsFragment extends android.support.v4.app.Fragment {
             public void onResponse(EventResponse response) {
                 // Do whatever you want to do with response;
                 // Like response.tags.getListing_count(); etc. etc.
-                List<EventResponse.EventModel> events = new ArrayList<EventResponse.EventModel>();
-                events = response.getEvents();
-                Log.e("response", events.get(0).getName());
+              eventsall = new ArrayList<EventResponse.EventModel>();
+                eventsall = response.getEvents();
+                initializeData();
+                initializeAdapter();
+                Log.e("response", eventsall.get(0).getName());
 
             }
         };
@@ -126,19 +128,25 @@ public class AllEventsFragment extends android.support.v4.app.Fragment {
         };
     }
     private void initializeData(){
+      //  events = new ArrayList<>();
         events = new ArrayList<>();
+        for(int i=0;i<eventsall.size();i++){
+            if(!(eventsall.get(i).getStatus().equals("finished")) && eventsall.get(i).getSeats()!=0)
+            events.add(new Events(eventsall.get(i).getName(),eventsall.get(i).getDate(),eventsall.get(i).getVenue(),R.drawable.nepalim,eventsall.get(i).getEid()));
+
+        }
 
 
-        events.add(new Events("Event 1", "7/06/2015","Central Park", R.drawable.logo));
+     /*   events.add(new Events("Event 1", "7/06/2015","Central Park", R.drawable.logo));
         events.add(new Events("Event 2", "7/06/2015","Central Park", R.drawable.logo));
         events.add(new Events("Event 3", "7/06/2015","Central Park", R.drawable.nepalim));
         events.add(new Events("Event 4", "7/06/2015","Central Park", R.drawable.logo));
-        events.add(new Events("Emma Wilson", "7/06/2015","Central Park", R.drawable.nepalim));
+        events.add(new Events("Emma Wilson", "7/06/2015","Central Park", R.drawable.nepalim));*/
     }
 
     private void initializeAdapter(){
         EventCardAdapter adapter;
-        adapter = new EventCardAdapter(events, R.layout.event_card_item);
+        adapter = new EventCardAdapter(events, R.layout.event_card_item, getActivity());
 
 
         adapter.SetOnItemClickListener(new EventCardAdapter.OnItemClickListener() {
@@ -148,8 +156,8 @@ public class AllEventsFragment extends android.support.v4.app.Fragment {
                 // do something with position
 
                 Intent i = new Intent(getActivity(),EventDetail.class);
-                Events selectedEvent = events.get(position);
-                i.putExtra("selectedEvent", (Serializable) selectedEvent);
+                EventResponse.EventModel selectedEvent = eventsall.get(position);
+                i.putExtra("selectedEvent", events.get(position).id);
                 startActivityForResult(i, 1);
             }
         });
