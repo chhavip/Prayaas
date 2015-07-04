@@ -133,6 +133,7 @@ public class MyEventsFragment extends android.support.v4.app.Fragment {
                 Intent i = new Intent(getActivity(),EventDetail.class);
            //     EventResponse.EventModel selectedEvent = eventsall.get(position);
                 i.putExtra("selectedEvent", events.get(position).id);
+                i.putExtra("removeGoing",true);
                 startActivityForResult(i, 1);
             }
         });

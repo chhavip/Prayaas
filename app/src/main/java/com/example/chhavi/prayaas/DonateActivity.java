@@ -72,6 +72,7 @@ public class DonateActivity extends ActionBarActivity implements View.OnClickLis
         else    {
             //do what you have to with the entered amount
             fetchEvent();
+            Toast.makeText(DonateActivity.this,"Your donation is valuable to us, please wait while we complete the transfer",Toast.LENGTH_LONG).show();
 
 
 
@@ -87,8 +88,10 @@ public class DonateActivity extends ActionBarActivity implements View.OnClickLis
                         //   item_et.setText("");
                         Log.e("response user", response);
                         Toast.makeText(activity,
-                                "Data Inserted Successfully",
+                                "Transfer Completed Successfully",
                                 Toast.LENGTH_SHORT).show();
+                        Intent i = new Intent(DonateActivity.this,NavigationDrawer.class);
+                        startActivity(i);
 
                         try {
                             JSONObject jsonObject = new JSONObject(response);
@@ -96,9 +99,7 @@ public class DonateActivity extends ActionBarActivity implements View.OnClickLis
 //                            wallet = jsonObject.get("reward").toString();
 //                            incentive_value.setText(wallet);
                         } catch (JSONException e) {
-                            Toast.makeText(activity,
-                                    "failed",
-                                    Toast.LENGTH_SHORT).show();
+
                         }
 
 //                        WalletResponse response1 = new Gson().fromJson(response,WalletResponse.class);
@@ -115,7 +116,7 @@ public class DonateActivity extends ActionBarActivity implements View.OnClickLis
                 // PD.dismiss();
                 Log.e("error",error.toString());
                 Toast.makeText(activity,
-                        "failed to insert", Toast.LENGTH_SHORT).show();
+                        "failed to complete transfer, please try again", Toast.LENGTH_SHORT).show();
             }
         }) {
             @Override

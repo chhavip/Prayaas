@@ -69,6 +69,7 @@ public class EventDetail extends AppCompatActivity implements ObservableScrollVi
     ButtonRectangle notSure;
     Events events;
     String url;
+    boolean removeGoing;
     int eventId = 1;
     String fetcheventURl;
     TextView description;
@@ -89,6 +90,7 @@ public class EventDetail extends AppCompatActivity implements ObservableScrollVi
         Intent i = getIntent();
         Bundle b = i.getExtras();
         eventId = b.getInt("selectedEvent");
+
         //
         // Events events = (Events) b.get("selectedEvent");
 

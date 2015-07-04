@@ -60,6 +60,9 @@ public class Rewards extends android.support.v4.app.Fragment {
         //change to relevant wallet file
         url = AppConfig.BASE_URL + "fetch_user_wallet.php/?userid="+userId;
         fetchEvent();
+        Toast.makeText(getActivity(),
+                "Please wait for amount",
+                Toast.LENGTH_SHORT).show();
 
 
 
@@ -96,7 +99,7 @@ public class Rewards extends android.support.v4.app.Fragment {
                         //   item_et.setText("");
                         Log.e("response user", response);
                         Toast.makeText(getActivity(),
-                                "Data Inserted Successfully",
+                                "Amount fetched",
                                 Toast.LENGTH_SHORT).show();
 
                         try {
@@ -106,7 +109,7 @@ public class Rewards extends android.support.v4.app.Fragment {
                             incentive_value.setText(wallet);
                         } catch (JSONException e) {
                             Toast.makeText(getActivity(),
-                                    "failed",
+                                    "failed to fetch amount",
                                     Toast.LENGTH_SHORT).show();
                         }
 
