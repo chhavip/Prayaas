@@ -55,6 +55,16 @@
         android:background="@color/grey_100"
         android:alpha="0.8"
         >
+        <com.gc.materialdesign.views.ButtonRectangle
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:text="Feedbacks"
+            android:layout_marginRight="10dp"
+            android:layout_gravity="center"
+            android:background="@color/accent"
+            android:id="@+id/feedBack"
+
+            />
         <ImageView
             android:layout_width="150dp"
             android:layout_height="75dp"
