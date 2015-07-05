@@ -47,7 +47,7 @@ public class CollectActivity extends ActionBarActivity implements View.OnClickLi
 
     @Override
     public void onClick(View v) {
-        Intent intent=new Intent(Intent.ACTION_CALL);
+        Intent intent=new Intent(Intent.ACTION_DIAL);
         intent.setData(Uri.parse("tel:+9779803157548"));
         startActivity(intent);
     }

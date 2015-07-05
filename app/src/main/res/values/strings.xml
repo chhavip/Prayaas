@@ -50,11 +50,11 @@
 </string>
 <!-- TODO: Remove or change this placeholder text -->
     <string name="aboutApp">
-
-Prayaas is an app-based platform designed to connect volunteers to the NGOs and INGOs which needs participation for their events. We believe in creating an e-Volunteer trend in Nepal. However, we are currently focussed to facilitate the active organizations with spontaneous volunteers during this tragic time which Nepal is undergoing. In order to appreciate the volunteers we have added a Rewards Section where you will be rewarded for every participation. This reward will be in the form of money and once you receive money in the Rewards section it can either be collected from our centers or donated to our fund using the COLLECT and DONATE buttons in the Rewards Section. You can also Invite your friends Using the Invite option in the menu via Whatsapp, Facebook, Gmail and other options. For every invitation, a referral code will be sent to the person who you invite. If a person uses this referral code to register himself/herself in the app then both of you will be rewarded with an appreciation token money in your wallet, provided the new user has to participate in one of our volunteering programs.
-
+Prayaas is an app-based platform designed to connect volunteers to the NGOs and INGOs which needs participation for their events. We believe in creating an e-Volunteer trend in Nepal. However, we are currently focussed to facilitate the active organizations with spontaneous volunteers during this tragic time which Nepal is undergoing. In order to appreciate the volunteers we have added a Rewards Section where you will be rewarded for every participation. This reward will be in the form of money and once you receive money in the Rewards section it can either be collected from our centers or donated to our fund using the COLLECT and DONATE buttons in the Rewards Section. You can also Invite your friends Using the Invite option in the menu via Whatsapp, Facebook, Gmail and other options.
 </string>
-    <string name="note">Note - We don’t mean to commercialise ourselves or bring any negative impression at the users end. We have added the Rewards Section just to cover up the basic costs that the user has to bear while volunteering and acknowledging his hard work.</string>
+    <string name="note">
+        Note - We don’t mean to commercialise ourselves or bring any negative impression at the users end. We have added the Rewards Section just to cover up the basic costs that the user has to bear while volunteering and acknowledging his hard work.
+</string>
     <string name="title_activity_splash_screen">Prayaas</string>
 
 <!-- TODO: Remove or change this placeholder text -->

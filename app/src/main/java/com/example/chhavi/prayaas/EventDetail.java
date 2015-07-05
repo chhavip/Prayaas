@@ -3,6 +3,7 @@ package com.example.chhavi.prayaas;
 import android.content.Intent;
 
 import android.database.sqlite.SQLiteDatabase;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
@@ -80,7 +81,8 @@ public class EventDetail extends AppCompatActivity implements ObservableScrollVi
     TextView organisation;
     TextView duration;
     HashMap<String,String> userInfo;
-
+    ImageView callButton;
+    String callNumber;
 
 
     @Override
@@ -107,10 +109,11 @@ public class EventDetail extends AppCompatActivity implements ObservableScrollVi
         contact = (TextView)findViewById(R.id.eventContact);
         organisation = (TextView)findViewById(R.id.event_organisation);
         duration = (TextView)findViewById(R.id.eventDuration);
-
+        callButton = (ImageView) findViewById(R.id.callCollect);
+        contact.setOnClickListener(this);
+        callButton.setOnClickListener(this);
         mImageView.setImageResource(R.drawable.nepalim);
         mToolbarView = (Toolbar) findViewById(R.id.toolbar);
-        mToolbarView.setTitle("Title");
         mToolbarView.setBackgroundColor(
                 ScrollUtils.getColorWithAlpha(0, getResources().getColor(R.color.white)));
         mScrollView = (ObservableScrollView) findViewById(R.id.scroll);
@@ -139,6 +142,7 @@ public class EventDetail extends AppCompatActivity implements ObservableScrollVi
                 String status ="going";
                 UpdateUserEvent(userId,eventId+"",status);
 
+
             }
         });
 
@@ -159,7 +163,7 @@ public class EventDetail extends AppCompatActivity implements ObservableScrollVi
     public void onScrollChanged(int scrollY, boolean firstScroll, boolean dragging) {
         ViewHelper.setTranslationY(mImageView, scrollY / 2);
 
-        int baseColor = getResources().getColor(R.color.colorPrimary);
+        int baseColor = getResources().getColor(R.color.primary);
         float alpha = Math.min(1, (float) scrollY / mParallaxImageHeight);
         mToolbarView.setBackgroundColor(ScrollUtils.getColorWithAlpha(alpha, baseColor));
 
@@ -188,23 +192,23 @@ public class EventDetail extends AppCompatActivity implements ObservableScrollVi
         onScrollChanged(mScrollView.getCurrentScrollY(), false, false);
     }
 
-    @Override
-    public void onClick(View v) {
-        if (v.getId() == R.id.goingButton) {
-            //Update in user event database. Add a tuple with event name and user name and going.
-            Intent i = new Intent();
-            i.putExtra("selectedEvent", events);
-            setResult(1, i);
-            finish();
-        } else {
-            Intent i = new Intent();
-            i.putExtra("selectedEvent", events);
-            setResult(2, i);
-            finish();
-            //Update in user event database. Add a tuple with event name and user name and not sure.
+//    @Override
+//    public void onClick(View v) {
+//        if (v.getId() == R.id.goingButton) {
+//            //Update in user event database. Add a tuple with event name and user name and going.
+//            Intent i = new Intent();
+//            i.putExtra("selectedEvent", events);
+//            setResult(1, i);
+//            finish();
+//        } else {
+//            Intent i = new Intent();
+//            i.putExtra("selectedEvent", events);
+//            setResult(2, i);
+//            finish();
+//            //Update in user event database. Add a tuple with event name and user name and not sure.
+//
+//        }
 
-        }
-    }
 
 
 
@@ -220,9 +224,9 @@ public class EventDetail extends AppCompatActivity implements ObservableScrollVi
                         //PD.dismiss();
                         //   item_et.setText("");
                         Log.e("response user", response);
-                        Toast.makeText(getApplicationContext(),
-                                "Data Inserted Successfully",
-                                Toast.LENGTH_SHORT).show();
+//                        Toast.makeText(getApplicationContext(),
+//                                "Data Inserted Successfully",
+//                                Toast.LENGTH_SHORT).show();
 
 
 
@@ -233,7 +237,7 @@ public class EventDetail extends AppCompatActivity implements ObservableScrollVi
                 // PD.dismiss();
                 Log.e("error", error.toString());
                 Toast.makeText(getApplicationContext(),
-                        "failed to insert", Toast.LENGTH_SHORT).show();
+                        "failed to Load", Toast.LENGTH_SHORT).show();
 
             }
         }) {
@@ -278,9 +282,11 @@ public class EventDetail extends AppCompatActivity implements ObservableScrollVi
                         time.setText(event.getTime());
                         date.setText(event.getDate());
                         venue.setText(event.getVenue());
+                        callNumber = event.getContact();
                         contact.setText(event.getContact());
                         organisation.setText(event.getOrganisation());
                         duration.setText(event.getDuration());
+                        mToolbarView.setTitle(event.getName());
 
 
                     }
@@ -315,7 +321,12 @@ public class EventDetail extends AppCompatActivity implements ObservableScrollVi
     }
 
 
-
+    @Override
+    public void onClick(View v) {
+        Intent intent=new Intent(Intent.ACTION_DIAL);
+        intent.setData(Uri.parse("tel:" + callNumber));
+        startActivity(intent);
+    }
 }
 
 

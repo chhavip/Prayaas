@@ -156,7 +156,7 @@ public class ProfileFragment extends android.support.v4.app.Fragment  {
             @Override
             public void onResponse(UserDetailResponse userDetailResponse) {
                 ProfileFragment.userDetailResponse = userDetailResponse;
-                Log.e("Details",userDetailResponse.getAge());
+                 Log.e("Details",userDetailResponse.getAge());
                 name.setText(userDetailResponse.getName());
                 age.setText(userDetailResponse.getAge() + " years");
                 email.setText(userDetailResponse.getEmail());

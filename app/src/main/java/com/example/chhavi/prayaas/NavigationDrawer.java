@@ -19,14 +19,13 @@ public class NavigationDrawer extends MaterialNavigationDrawer {
         sp = getSharedPreferences("Prayaas", Context.MODE_PRIVATE);
         String name = sp.getString(PrayaasContract.USER_TABLE_NAME_COL, null);
         String username = sp.getString(PrayaasContract.USER_TABLE_USERNAME_COL, null);
+
         this.addSection(newSection("All Events", new AllEventsFragment()));
         this.addSection(newSection("My Events", new MyEventsFragment()));
-
-        this.addSection(newSection("PROFILE", new ProfileFragment()));
-        this.addSection(newSection("REWARDS", new Rewards()));
-        this.addSection(newSection("INVITE FRIENDS", new InviteFriends()));
-        this.addSection(newSection("ABOUT APP", new AboutAppFragment()));
-       this.addAccount(new MaterialAccount(this.getResources(), name, username,null,R.drawable.nepalim));
+        this.addSection(newSection("Profile", new ProfileFragment()));
+        this.addSection(newSection("Rewards", new Rewards()));
+        this.addSection(newSection("Invite Friends", new InviteFriends()));
+        this.addSection(newSection("About App", new AboutAppFragment()));
 
     }
 

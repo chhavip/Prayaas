@@ -58,28 +58,28 @@
             android:background="@color/accent"
 
             android:text="More Options" />
-        <FrameLayout
-            android:layout_width="match_parent"
-            android:layout_height="30dp"
-            android:layout_marginTop="30dp"
-            >
-            <TextView
-                android:layout_width="250dp"
-                android:layout_height="30dp"
-                android:textSize="12sp"
-                android:layout_gravity="center_horizontal"
-                android:text="EARN REWARD POINTS BY REFERRING YOUR FRIENDS USING"/>
+        <!--<FrameLayout-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="30dp"-->
+            <!--android:layout_marginTop="30dp"-->
+            <!-->-->
+            <!--<TextView-->
+                <!--android:layout_width="250dp"-->
+                <!--android:layout_height="30dp"-->
+                <!--android:textSize="12sp"-->
+                <!--android:layout_gravity="center_horizontal"-->
+                <!--android:text="EARN REWARD POINTS BY REFERRING YOUR FRIENDS USING"/>-->
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textSize="12sp"
-                android:layout_gravity="center_horizontal"
-                android:layout_marginTop="14dp"
-                android:layout_marginLeft="10dp"
-                android:textColor="@color/accent"
-                android:text="REFERRAL CODE"/>
-        </FrameLayout>
+            <!--<TextView-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:textSize="12sp"-->
+                <!--android:layout_gravity="center_horizontal"-->
+                <!--android:layout_marginTop="14dp"-->
+                <!--android:layout_marginLeft="10dp"-->
+                <!--android:textColor="@color/accent"-->
+                <!--android:text="REFERRAL CODE"/>-->
+        <!--</FrameLayout>-->
 
 
     </LinearLayout>
