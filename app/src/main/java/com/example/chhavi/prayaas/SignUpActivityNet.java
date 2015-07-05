@@ -67,7 +67,7 @@ public class SignUpActivityNet extends Activity {
         age =(EditText)findViewById(R.id.age);
         gender =(EditText)findViewById(R.id.gender);
         btnRegister = (Button) findViewById(R.id.btnRegister);
-        btnLinkToLogin = (Button) findViewById(R.id.btnLinkToLoginScreen);
+   //     btnLinkToLogin = (Button) findViewById(R.id.btnLinkToLoginScreen);
 
         // Progress dialog
         pDialog = new ProgressDialog(this);
@@ -114,15 +114,7 @@ public class SignUpActivityNet extends Activity {
         });
 
         // Link to Login Screen
-        btnLinkToLogin.setOnClickListener(new View.OnClickListener() {
 
-            public void onClick(View view) {
-                Intent i = new Intent(getApplicationContext(),
-                        LoginActivityNet.class);
-                startActivity(i);
-                finish();
-            }
-        });
 
     }
 
