@@ -34,10 +34,11 @@
         android:lineSpacingExtra="3sp"
         />
     </FrameLayout>
-    <FrameLayout
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/grey_100"
+        android:orientation="vertical"
         android:alpha="0.8">
     <TextView
         android:layout_width="match_parent"
@@ -48,7 +49,17 @@
         android:textColor="@color/primary_text"
         android:lineSpacingExtra="3sp"
         />
-    </FrameLayout>
+
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@android:color/transparent"
+            android:text="Follow Us on Facebook!"
+            android:textColor="@color/blue_400"
+            android:id="@+id/facebook_follow"
+            android:layout_gravity="center_horizontal" />
+    </LinearLayout>
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
