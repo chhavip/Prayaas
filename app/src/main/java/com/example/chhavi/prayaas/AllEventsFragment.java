@@ -19,6 +19,7 @@ import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
+import com.google.android.gms.analytics.HitBuilders;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -154,6 +155,9 @@ public class AllEventsFragment extends android.support.v4.app.Fragment {
             @Override
             public void onItemClick(View v, int position) {
                 // do something with position
+                AppController.tracker().send(new HitBuilders.EventBuilder("ui", "open")
+                        .setLabel("settings")
+                        .build());
 
                 Intent i = new Intent(getActivity(),EventDetail.class);
                 EventResponse.EventModel selectedEvent = eventsall.get(position);
