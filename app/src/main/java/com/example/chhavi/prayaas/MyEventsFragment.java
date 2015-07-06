@@ -72,7 +72,7 @@ public class MyEventsFragment extends android.support.v4.app.Fragment {
         rv.setLayoutManager(llm);
         rv.setHasFixedSize(true);
         rv.setItemAnimator(new DefaultItemAnimator());
-      //  fetchmyEvents();
+        //  fetchmyEvents();
         initializeData();
         initializeAdapter();
         return v;
@@ -83,7 +83,7 @@ public class MyEventsFragment extends android.support.v4.app.Fragment {
             public void onResponse(EventResponse response) {
                 // Do whatever you want to do with response;
                 // Like response.tags.getListing_count(); etc. etc.
-                 eventsall = new ArrayList<EventResponse.EventModel>();
+                eventsall = new ArrayList<EventResponse.EventModel>();
 
                 eventsall = response.getEvents();
                 initializeData();
@@ -107,7 +107,7 @@ public class MyEventsFragment extends android.support.v4.app.Fragment {
         if(eventsall!=null) {
             for (int i = 0; i < eventsall.size(); i++) {
 
-                events.add(new Events(eventsall.get(i).getName(), eventsall.get(i).getDate(), eventsall.get(i).getVenue(), R.drawable.nepalim,eventsall.get(i).getEid()));
+                events.add(new Events(eventsall.get(i).getName(), eventsall.get(i).getDate(), eventsall.get(i).getVenue(), R.drawable.photocomingsoon,eventsall.get(i).getEid()));
 
             }
         }
@@ -131,7 +131,7 @@ public class MyEventsFragment extends android.support.v4.app.Fragment {
                 // do something with position
 
                 Intent i = new Intent(getActivity(),EventDetail.class);
-           //     EventResponse.EventModel selectedEvent = eventsall.get(position);
+                //     EventResponse.EventModel selectedEvent = eventsall.get(position);
                 i.putExtra("selectedEvent", events.get(position).id);
                 i.putExtra("removeGoing",true);
                 startActivityForResult(i, 1);
