@@ -59,8 +59,8 @@
             android:layout_width="wrap_content"
             android:layout_height="50dp"
             android:text="Feedbacks"
-            android:layout_marginRight="10dp"
-            android:layout_gravity="center"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="20dp"
             android:background="@color/accent"
             android:id="@+id/feedBack"
 

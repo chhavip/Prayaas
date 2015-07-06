@@ -132,7 +132,7 @@ public class AllEventsFragment extends android.support.v4.app.Fragment {
         events = new ArrayList<>();
         for(int i=0;i<eventsall.size();i++){
             if(!(eventsall.get(i).getStatus().equals("finished")) && eventsall.get(i).getSeats()!=0)
-            events.add(new Events(eventsall.get(i).getName(),eventsall.get(i).getDate(),eventsall.get(i).getVenue(),R.drawable.nepalim,eventsall.get(i).getEid()));
+            events.add(new Events(eventsall.get(i).getName(),eventsall.get(i).getDate(),eventsall.get(i).getVenue(),R.drawable.photocomingsoon,eventsall.get(i).getEid()));
 
         }
 

@@ -224,6 +224,8 @@ public class EventDetail extends AppCompatActivity implements ObservableScrollVi
                         //PD.dismiss();
                         //   item_et.setText("");
                         Log.e("response user", response);
+                        setResult(1);
+                        finish();
 //                        Toast.makeText(getApplicationContext(),
 //                                "Data Inserted Successfully",
 //                                Toast.LENGTH_SHORT).show();
