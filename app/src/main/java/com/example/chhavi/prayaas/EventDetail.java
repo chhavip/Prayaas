@@ -270,10 +270,10 @@ public class EventDetail extends AppCompatActivity implements ObservableScrollVi
                     public void onResponse(String response) {
                         //PD.dismiss();
                         //   item_et.setText("");
-                        Log.e("response user", response);
-                        Toast.makeText(getApplicationContext(),
+                      //  Log.e("response user", response);
+                      /*  Toast.makeText(getApplicationContext(),
                                 "Data Inserted Successfully",
-                                Toast.LENGTH_SHORT).show();
+                                Toast.LENGTH_SHORT).show();*/
 
                         SingleEventRespnse eventG = new Gson().fromJson(response,SingleEventRespnse.class);
                         Log.e("test", eventG.getEvent().getName());
@@ -296,7 +296,7 @@ public class EventDetail extends AppCompatActivity implements ObservableScrollVi
                 // PD.dismiss();
                 Log.e("error",error.toString());
                 Toast.makeText(getApplicationContext(),
-                        "failed to insert", Toast.LENGTH_SHORT).show();
+                        "Failed to fetch data", Toast.LENGTH_SHORT).show();
             }
         }) {
             @Override
