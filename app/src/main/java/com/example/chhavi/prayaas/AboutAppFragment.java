@@ -12,7 +12,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 
-import com.gc.materialdesign.views.ButtonRectangle;
 
 
 /**
@@ -31,7 +30,7 @@ Button followFacebook;
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View v = inflater.inflate(R.layout.fragment_about_app, container, false);
-        ButtonRectangle feedback = (ButtonRectangle) v.findViewById(R.id.feedBack);
+        Button feedback = (Button) v.findViewById(R.id.feedBack);
         feedback.setOnClickListener(new View.OnClickListener() {
                                         @Override
                                         public void onClick(View v) {

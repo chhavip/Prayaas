@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="80dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_gravity="right"
+    android:background="@color/accent"
+    android:layout_marginLeft="30dp"
+    android:layout_marginBottom="5dp"
+    android:id="@+id/cv"
+
+    app:cardCornerRadius="2dp">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="M T W TH F S SU"
+        android:layout_gravity="top"
+        android:textSize="12sp"
+        android:id="@+id/daysActiveCollect"
+        android:layout_margin="5dp"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Time"
+        android:layout_gravity="center_vertical"
+        android:textSize="12sp"
+        android:id="@+id/timingsCollect"
+        android:layout_margin="5dp"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="right"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="5dp"
+        android:text="Name : Kapil Agrawal"
+        android:id="@+id/nameCollect"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:text="Address : "
+        android:textSize="10sp"
+        android:layout_margin="5dp"
+        android:id="@+id/addressCollect"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="right"
+        android:layout_marginRight="50dp"
+        android:layout_marginTop="35dp"
+        android:text="Phone Number: 9803157548"
+        android:id="@+id/phoneCollect"/>
+    <ImageView
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginRight="10dp"
+        android:src="@drawable/call"
+        android:id="@+id/callCollect"
+        android:layout_marginTop="26dp"
+        android:layout_gravity="right"/>
+
+</android.support.v7.widget.CardView>

@@ -56,7 +56,7 @@
             android:layout_height="wrap_content"
             android:background="@android:color/transparent"
             android:text="Follow Us on Facebook!"
-            android:textColor="@color/blue_400"
+            android:textColor="@color/accent"
             android:id="@+id/facebook_follow"
             android:layout_gravity="center_horizontal" />
     </LinearLayout>
@@ -66,22 +66,15 @@
         android:background="@color/grey_100"
         android:alpha="0.8"
         >
-        <com.gc.materialdesign.views.ButtonRectangle
-            android:layout_width="wrap_content"
-            android:layout_height="50dp"
-            android:text="Feedbacks"
-            android:layout_gravity="center_vertical"
-            android:layout_marginLeft="20dp"
-            android:background="@color/accent"
-            android:id="@+id/feedBack"
 
-            />
-        <ImageView
-            android:layout_width="150dp"
-            android:layout_height="75dp"
-            android:src="@drawable/sparrowfinal"
-            android:layout_gravity="end"
-            />
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@android:color/transparent"
+            android:text="Give us a Feedback"
+            android:textColor="@color/accent"
+            android:id="@+id/feedBack"
+            android:layout_gravity="center_horizontal" />
 </FrameLayout>
 
 
