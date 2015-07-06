@@ -6,19 +6,36 @@ import android.text.TextUtils;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.toolbox.Volley;
+import com.google.android.gms.analytics.GoogleAnalytics;
+import com.google.android.gms.analytics.Tracker;
 
 public class AppController extends Application {
 
 	public static final String TAG = AppController.class.getSimpleName();
 
 	private RequestQueue mRequestQueue;
-
+	public static GoogleAnalytics analytics;
+	public static Tracker tracker;
 	private static AppController mInstance;
+	public static Tracker tracker() {
+		return tracker;
+	}
+	public static GoogleAnalytics analytics() {
+		return analytics;
+	}
 
 	@Override
 	public void onCreate() {
 		super.onCreate();
+		analytics = GoogleAnalytics.getInstance(this);
+		analytics.setLocalDispatchPeriod(1800);
+
+		tracker = analytics.newTracker("UA-64806192-1"); // Replace with actual tracker/property Id
+		tracker.enableExceptionReporting(true);
+		tracker.enableAdvertisingIdCollection(true);
+		tracker.enableAutoActivityTracking(true);
 		mInstance = this;
+
 	}
 
 	public static synchronized AppController getInstance() {
