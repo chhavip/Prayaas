@@ -108,7 +108,7 @@
             android:layout_gravity="right"
             android:text="Cancel"
             android:textColor="@color/accent"
-            android:background="@color/white"
+            android:background="@android:color/transparent"
             android:id="@+id/cancelButton"
 
             style="@style/Widget.AppCompat.Button.Borderless"/>

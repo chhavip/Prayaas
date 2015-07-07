@@ -16,6 +16,7 @@ import com.engio.prayaas.R;
 import com.gc.materialdesign.views.ButtonRectangle;
 
 
+
 /**
  * A simple {@link Fragment} subclass.
  */
@@ -32,7 +33,7 @@ Button followFacebook;
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View v = inflater.inflate(R.layout.fragment_about_app, container, false);
-        ButtonRectangle feedback = (ButtonRectangle) v.findViewById(R.id.feedBack);
+        Button feedback = (Button) v.findViewById(R.id.feedBack);
         feedback.setOnClickListener(new View.OnClickListener() {
                                         @Override
                                         public void onClick(View v) {
