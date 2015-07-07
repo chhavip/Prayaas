@@ -13,6 +13,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.engio.prayaas.R;
+
 
 public class SignUpActivity extends ActionBarActivity implements View.OnClickListener {
 

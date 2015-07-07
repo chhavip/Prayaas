@@ -24,6 +24,7 @@ import com.android.volley.Request;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
+import com.engio.prayaas.R;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -62,7 +63,7 @@ public class OtpActivity extends ActionBarActivity implements View.OnClickListen
         // compute a fraction of the range, 0 <= frac < range
         long fraction = (long)(range * aRandom.nextDouble());
         desiredOtp =  (int)(fraction + aStart);
-        Log.i("desired", desiredOtp + "");
+       // Log.i("desired", desiredOtp + "");
     }
 
     @Override
@@ -140,6 +141,7 @@ public class OtpActivity extends ActionBarActivity implements View.OnClickListen
                 Log.e("data", email + password + phone + age + gender);
 
                 registerUser(name, email, phone, password, referral, age, gender);
+                Toast.makeText(OtpActivity.this,"Please give us a moment to verify your details",Toast.LENGTH_LONG).show();
             }
             flag = true;
 
@@ -180,7 +182,7 @@ public class OtpActivity extends ActionBarActivity implements View.OnClickListen
 
             @Override
             public void onResponse(String response) {
-                Log.d(TAG, "Register Response: " + response.toString());
+              //  Log.d(TAG, "Register Response: " + response.toString());
            //     hideDialog();
 
                 try {

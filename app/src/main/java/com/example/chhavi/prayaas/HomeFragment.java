@@ -28,6 +28,7 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.VolleyLog;
 import com.android.volley.toolbox.Volley;
+import com.engio.prayaas.R;
 
 import java.io.Serializable;
 import java.lang.reflect.Method;
@@ -44,9 +45,9 @@ import it.neokree.materialtabs.MaterialTabListener;
 import models.EventResponse;
 import models.Events;
 import android.support.v4.app.Fragment;
-import static com.example.chhavi.prayaas.R.color.abc_primary_text_disable_only_material_dark;
-import static com.example.chhavi.prayaas.R.color.white;
-import static com.example.chhavi.prayaas.R.drawable.nepalim;
+import static com.engio.prayaas.R.color.abc_primary_text_disable_only_material_dark;
+import static com.engio.prayaas.R.color.white;
+import static com.engio.prayaas.R.drawable.nepalim;
 
 /**
  * Created by chhavi on 2/6/15.

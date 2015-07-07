@@ -12,6 +12,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.Toast;
 
+import com.engio.prayaas.R;
 import com.gc.materialdesign.views.ButtonRectangle;
 
 import java.util.List;

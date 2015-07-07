@@ -10,6 +10,8 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.engio.prayaas.R;
+
 
 public class CollectActivity extends ActionBarActivity implements View.OnClickListener {
     TextView phoneCollect;
